@@ -1,0 +1,33 @@
+{
+  "root": "packages/trycatchfy",
+  "sourceRoot": "packages/trycatchfy/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/trycatchfy",
+        "main": "packages/trycatchfy/src/index.ts",
+        "tsConfig": "packages/trycatchfy/tsconfig.lib.json",
+        "assets": ["packages/trycatchfy/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/trycatchfy/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/trycatchfy"],
+      "options": {
+        "jestConfig": "packages/trycatchfy/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
