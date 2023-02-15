@@ -9,7 +9,7 @@ on:
 
 jobs:
   pull-request:
-    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
+    name: CI/CD affected modules on node ${{ matrix.node_version }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -17,14 +17,14 @@ jobs:
         os: [ubuntu-latest]
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node_version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node_version }}
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node_version }}
 
-    - name: Add Nx globally
-      run: npm install -g nx && yarn
+      - name: Add Nx globally
+        run: npm install -g nx && yarn
 
-    - name: Run unit tests on affected modules
-      run: yarn nx affected --target=test --base=origin/main --parallel
+      - name: Run unit tests on affected modules
+        run: yarn nx affected --target=test --base=origin/main --parallel
