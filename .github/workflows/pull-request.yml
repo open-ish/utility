@@ -1,27 +1,33 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Node.js CI
+name: CI/CD affected modules
 
 on:
   pull_request:
     branches: ['main']
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  pull-request:
+    name: Running on node ${{ matrix.node_version }}
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node_version: ['16.x']
+        os: [ubuntu-latest]
+
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          node-version: ${{ matrix.node_version }}
+
+      - name: Add Nx globally
+        run: npm install -g nx && yarn
+
       - name: Run unit tests on affected modules
-      - run: yarn nx affected --target=test --base=origin/main --parallel
-      - name: Run build on affected modules
-      - run: yarn nx affected --target=build --base=origin/main --parallel
+        run: yarn nx affected --target=test --base=origin/main --parallel
+
+      - name: Run unit build on affected modules
+        run: yarn nx affected --target=build --base=origin/main --parallel
