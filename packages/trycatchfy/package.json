@@ -1,4 +1,13 @@
 {
-  "name": "@utility/trycatchfy",
-  "version": "0.0.3"
+  "name": "@open-ish/utility-trycatchfy",
+  "version": "0.0.3-semantic-release",
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/open-ish/utility.git",
+    "directory": "packages/trycatchfy"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
 }
