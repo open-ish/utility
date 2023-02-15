@@ -23,5 +23,8 @@ jobs:
       with:
         node-version: ${{ matrix.node_version }}
 
+    - name: Add Nx globally
+      run: npm install -g nx && yarn
+
     - name: Run unit tests on affected modules
       run: yarn nx affected --target=test --base=origin/main --parallel
