@@ -22,7 +22,6 @@ jobs:
 
     steps:
       - name: Set Node, yarn and npm versions
-      - uses: actions/checkout@v1
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node_version }}
