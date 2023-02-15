@@ -1,0 +1,83 @@
+name:
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches: ['main']
+
+env:
+  HUSKY: 0
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ github.workspace }}
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - name: Set Node, yarn and npm versions
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node_version }}
+          npm-version: 8.19.2
+          yarn-version: 1.22.4
+
+      - name: Checkout [Pull Request]
+        uses: actions/checkout@v2
+        if: ${{ github.event_name == 'pull_request' }}
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          token: ${{ secrets.NPM_TOKEN }}
+          fetch-depth: 0
+
+      - name: Checkout [Default Branch]
+        uses: actions/checkout@v2
+        if: ${{ github.event_name != 'pull_request' }}
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          fetch-depth: 0
+
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+        with:
+          main-branch-name: ${{ github.base_ref }}
+
+      - name: Detect package manager
+        id: package_manager
+        run: |
+          echo "::set-output name=name::$([[ -f ./yarn.lock ]] && echo "yarn" || ([[ -f ./pnpm-lock.yaml ]] && echo "pnpm") || echo "npm")"
+
+      - name: Install dependencies
+        run: |
+          if [ "${{ steps.package_manager.outputs.name == 'yarn' }}" == "true" ]; then
+            echo "Running yarn install --frozen-lockfile"
+            yarn install --frozen-lockfile
+          elif [ "${{ steps.package_manager.outputs.name == 'pnpm' }}" == "true" ]; then
+            echo "Running pnpm install --frozen-lockfile"
+            pnpm install --frozen-lockfile
+          else
+            echo "Running npm ci"
+            npm ci
+          fi
+
+      - run: |
+          npx nx workspace-lint
+          npx nx format:check
+          npx nx affected --target lint --parallel 3
+          npx nx affected --target test --parallel 3 --ci --code-coverage
+          npx nx affected --target build --parallel 3
+
+      - name: Release
+        if: ${{ success() && (github.event_name != 'pull_request' || github.event.action == 'closed' && github.event.pull_request.merged == true) }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          npx nx affected --target release
+          npx semantic-release-plus

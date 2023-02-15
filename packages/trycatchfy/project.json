@@ -1,5 +1,6 @@
 {
-  "root": "packages/trycatchfy",
+  "name": "trycatchfy",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/trycatchfy/src",
   "projectType": "library",
   "targets": {
@@ -24,8 +25,16 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/packages/trycatchfy"],
       "options": {
-        "jestConfig": "packages/trycatchfy/jest.config.js",
+        "jestConfig": "packages/trycatchfy/jest.config.ts",
         "passWithNoTests": true
+      }
+    },
+    "release": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npx semantic-release-plus --extends ./packages/ts-library/release.config.js",
+        "parallel": false
       }
     }
   },
