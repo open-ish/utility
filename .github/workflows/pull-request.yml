@@ -8,18 +8,20 @@ on:
     branches: ['main']
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  pull-request:
+    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node_version: ['16.x']
+        os: [ubuntu-latest]
+
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      - uses: actions/setup-node@v3
-      - name: Run unit tests on affected modules
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node_version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node_version }}
+
+    - name: Run unit tests on affected modules
+      run: yarn nx affected --target=test --base=origin/main --parallel
