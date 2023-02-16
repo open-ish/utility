@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/open-ish/utility/compare/trycatchfy-v1.0.0...trycatchfy-v1.1.0) (2023-02-16)
+
+
+### Features
+
+* create new helper ([40764a6](https://github.com/open-ish/utility/commit/40764a63bdae06768ae1f41ff82ddcf49db83583))
+
 # 1.0.0 (2023-02-16)
 
 
