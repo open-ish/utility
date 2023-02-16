@@ -55,7 +55,7 @@ jobs:
             echo "Running npm ci"
             npm ci
           fi
-          
+
       - run: |
           npx nx affected:test --base=origin/master~1 --head=origin/master
           npx nx affected:build --base=origin/master~1 --head=origin/master
