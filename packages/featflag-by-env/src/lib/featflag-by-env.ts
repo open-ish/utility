@@ -1,3 +1,3 @@
-export function featflagByEnv(): string {
+export function featflagByEnv() {
   return 'featflag-by-env';
 }
