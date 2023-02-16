@@ -23,11 +23,11 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
 
-      - name: Add Nx globally
-        run: npm install -g nx && yarn
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
 
       - name: Run unit tests on affected modules
-        run: yarn nx affected --target=test --base=origin/master --parallel
+        run: npx nx affected --target=test --base=origin/master --parallel
 
       - name: Run unit build on affected modules
-        run: yarn nx affected --target=build --base=origin/master --parallel
+        run: npx nx affected --target=build --base=origin/master --parallel
