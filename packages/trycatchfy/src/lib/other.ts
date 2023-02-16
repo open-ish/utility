@@ -1,3 +1,3 @@
 export function other(): string {
-  return 'other';
+  return 'otherrr';
 }
