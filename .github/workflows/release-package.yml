@@ -1,4 +1,4 @@
-name: Release affected package
+name: Release affected packages
 
 on:
   push:
