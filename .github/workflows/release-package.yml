@@ -25,6 +25,13 @@ jobs:
           node-version: ${{ matrix.node_version }}
           npm-version: 8.19.2
           yarn-version: 1.22.4
+          
+      - name: Checkout [Default Branch]
+        uses: actions/checkout@v2
+        if: ${{ github.event_name != 'pull_request' }}
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          fetch-depth: 0
 
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
