@@ -1,3 +1,3 @@
-export function trycatchfy(): string {
+export function trycatchfy() {
   return 'trycatchfy';
 }

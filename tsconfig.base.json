@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@open-ish/utility-trycatchfy": ["packages/featflag-by-env/src/index.ts"],
       "@utility/trycatchfy": ["packages/trycatchfy/src/index.ts"]
     }
   },

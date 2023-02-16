@@ -1,4 +1,4 @@
-name: Release affected package
+name: Release affected packages
 
 on:
   push:
@@ -25,7 +25,7 @@ jobs:
           node-version: ${{ matrix.node_version }}
           npm-version: 8.19.2
           yarn-version: 1.22.4
-          
+
       - name: Checkout [Default Branch]
         uses: actions/checkout@v2
         if: ${{ github.event_name != 'pull_request' }}
@@ -57,7 +57,7 @@ jobs:
           fi
 
       - run: |
-          npx nx affected --target=test --base=origin/master --parallel 3 --ci --code-coverage
+          npx nx affected:test --base=origin/master~1 --head=origin/master
           npx nx affected --target=build --base=origin/master --parallel 3
 
       - name: Release
@@ -66,5 +66,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          npx nx affected --target=release --base=origin/master
+          npx nx affected --target=release --base=origin/master --head=HEAD
           npx semantic-release-plus
