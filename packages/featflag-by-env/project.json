@@ -4,6 +4,13 @@
   "sourceRoot": "packages/featflag-by-env/src",
   "projectType": "library",
   "targets": {
+    "release": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "echo testing"
+      }
+    },
     "build": {
       "executor": "@nrwl/js:tsc",
       "outputs": ["{options.outputPath}"],
