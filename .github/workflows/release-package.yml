@@ -55,6 +55,10 @@ jobs:
             echo "Running npm ci"
             npm ci
           fi
+          
+      - run: |
+          npx nx affected:test --base=origin/master~1 --head=origin/master
+          npx nx affected:build --base=origin/master~1 --head=origin/master
 
       - name: Release packages
         if: ${{ success() && (github.event_name != 'pull_request' || github.event.action == 'closed' && github.event.pull_request.merged == true) }}
