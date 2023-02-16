@@ -6,4 +6,5 @@ describe('trycatchfy', () => {
   });
   it.todo('Should execute onsuccess callback');
   it.todo('Should execute onServerError callback');
+  it.todo('Should execute onEndCycle callback');
 });
