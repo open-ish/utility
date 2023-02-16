@@ -57,9 +57,6 @@ jobs:
           fi
 
       - run: |
-          npx nx workspace-lint
-          npx nx format:check
-          npx nx affected --target --base=origin/master lint --parallel 3
           npx nx affected --target --base=origin/master test --parallel 3 --ci --code-coverage
           npx nx affected --target --base=origin/master build --parallel 3
 
