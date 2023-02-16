@@ -3,9 +3,9 @@ name:
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
-    branches: ['main']
+    branches: ['master']
 
 env:
   HUSKY: 0
