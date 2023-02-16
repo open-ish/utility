@@ -5,7 +5,7 @@ name: CI/CD affected modules
 
 on:
   pull_request:
-    branches: ['main']
+    branches: ['master']
 
 jobs:
   pull-request:
