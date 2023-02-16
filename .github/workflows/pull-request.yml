@@ -27,7 +27,7 @@ jobs:
         run: npm install -g nx && yarn
 
       - name: Run unit tests on affected modules
-        run: yarn nx affected --target=test --base=origin/main --parallel
+        run: yarn nx affected --target=test --base=origin/master --parallel
 
       - name: Run unit build on affected modules
-        run: yarn nx affected --target=build --base=origin/main --parallel
+        run: yarn nx affected --target=build --base=origin/master --parallel
