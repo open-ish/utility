@@ -1,2 +1,4 @@
 ./.github/*
 ./.husky/*
+release.config.base.js
+tsconfig.base.json
