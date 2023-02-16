@@ -2,3 +2,6 @@
 ./.husky/*
 release.config.base.js
 tsconfig.base.json
+
+./*/*.config.{js,ts}
+./*/project.json

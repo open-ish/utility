@@ -8,7 +8,8 @@
       "executor": "nx:run-commands",
       "outputs": [],
       "options": {
-        "command": "echo testing"
+        "command": "npx semantic-release-plus --extends ./packages/featflag-by-env/release.config.js",
+        "parallel": false
       }
     },
     "build": {
