@@ -57,8 +57,8 @@ jobs:
           fi
 
       - run: |
-          npx nx affected --target --base=origin/master test --parallel 3 --ci --code-coverage
-          npx nx affected --target --base=origin/master build --parallel 3
+          npx nx affected --target=test --base=origin/master --parallel 3 --ci --code-coverage
+          npx nx affected --target=build --base=origin/master --parallel 3
 
       - name: Release
         if: ${{ success() && (github.event_name != 'pull_request' || github.event.action == 'closed' && github.event.pull_request.merged == true) }}
@@ -66,5 +66,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          npx nx affected --target --base=origin/master release
+          npx nx affected --target=release --base=origin/master
           npx semantic-release-plus
