@@ -5,4 +5,5 @@ describe('trycatchfy', () => {
     expect(trycatchfy()).toEqual('trycatchfy');
   });
   it.todo('Should execute onsuccess callback');
+  it.todo('Should execute onServerError callback');
 });
