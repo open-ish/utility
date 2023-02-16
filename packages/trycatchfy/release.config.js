@@ -1,4 +1,4 @@
-const name = 'ts-library';
+const name = 'trycatchfy';
 const srcRoot = `packages/${name}`;
 
 module.exports = {
