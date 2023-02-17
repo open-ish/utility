@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/open-ish/utility/compare/trycatchfy-v1.1.0...trycatchfy-v1.2.0) (2023-02-17)
+
+
+### Features
+
+* create first version ([49b475d](https://github.com/open-ish/utility/commit/49b475d5669b1676fc2356ee05cf73d43d101834))
+
 # [1.1.0](https://github.com/open-ish/utility/compare/trycatchfy-v1.0.0...trycatchfy-v1.1.0) (2023-02-16)
 
 
