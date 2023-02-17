@@ -1,12 +1,9 @@
 import { trycatchfy } from './trycatchfy';
 import { ITrycatchfyParams } from '../index.d';
 
-interface IWrapperTrycatchfy {
-  expectedBehavior: ITrycatchfyParams['expectedBehavior'];
-  onForbiddenError: ITrycatchfyParams['onForbiddenError'];
-  onResourceError: ITrycatchfyParams['onResourceError'];
-  onScriptError: ITrycatchfyParams['onScriptError'];
-  onEndCycle: () => void;
+interface IFakeAxios {
+  response: any;
+  status: number;
 }
 
 export const wrapperTrycatchfy = async ({
@@ -15,18 +12,23 @@ export const wrapperTrycatchfy = async ({
   onResourceError,
   onScriptError,
   onEndCycle,
-}: IWrapperTrycatchfy) => {
+  onHttpExceptionError,
+}: Omit<
+  ITrycatchfyParams<IFakeAxios>,
+  'onUnauthorizedError' | 'onInternalServerError'
+>) => {
   const onUnauthorizedErrorDefault = () => {
     console.log('logout user');
   };
   const onInternalServerErrorDefault = () => {
     console.log('server error - reload');
   };
-  await trycatchfy({
+  await trycatchfy<IFakeAxios>({
     expectedBehavior,
     onForbiddenError,
     onResourceError,
     onScriptError,
+    onHttpExceptionError,
     onUnauthorizedError: onUnauthorizedErrorDefault,
     onInternalServerError: onInternalServerErrorDefault,
     onEndCycle,

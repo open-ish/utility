@@ -17,6 +17,7 @@ const onForbiddenError = jest.fn();
 const onResourceError = jest.fn();
 const onEndCycle = jest.fn();
 const onScriptError = jest.fn();
+const onHttpExceptionError = jest.fn();
 
 const log = jest.spyOn(console, 'log');
 describe('trycatchfy with wrapper', () => {
@@ -27,10 +28,11 @@ describe('trycatchfy with wrapper', () => {
   it('Should execute onInternalServerError callback', async () => {
     wrapperTrycatchfy({
       expectedBehavior: errorFactory(RESPONSE_INTERNAL_ERROR),
-      onEndCycle,
       onForbiddenError,
       onResourceError,
       onScriptError,
+      onHttpExceptionError,
+      onEndCycle,
     });
     expect(log).toBeCalledWith('server error - reload');
   });

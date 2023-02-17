@@ -10,28 +10,30 @@ const httpErrorsHelper = [
   { handleName: 'onForbiddenError', statusCode: 403 },
   { handleName: 'onResourceError', statusCode: 404 },
 ];
-
-export const trycatchfy = async (
-  params: ITrycatchfyParams
+export const trycatchfy = async <IAxiosErrorReponse>(
+  params: ITrycatchfyParams<IAxiosErrorReponse>
 ): Promise<void | Error> => {
   const {
     expectedBehavior,
     onEndCycle = unExecutableFunction,
     onScriptError = unExecutableFunction,
+    onHttpExceptionError = unExecutableFunction,
   } = params;
   try {
     expectedBehavior();
   } catch (error: ITrycatchfyError | any) {
     const httpAxiosStatus = error.response?.status;
-    !httpAxiosStatus && onScriptError(error);
+    if (!httpAxiosStatus) return onScriptError(error);
 
     const errorResponse = error.response;
+    const isMappedError = httpErrorsHelper.find(
+      ({ statusCode, statusHandle }) =>
+        statusHandle?.(httpAxiosStatus) ?? httpAxiosStatus === statusCode
+    );
 
-    httpErrorsHelper.forEach(({ statusCode, handleName, statusHandle }) => {
-      const isError =
-        statusHandle?.(httpAxiosStatus) ?? httpAxiosStatus === statusCode;
-      isError && params[handleName as keyof typeof params](errorResponse);
-    });
+    isMappedError
+      ? params[isMappedError.handleName as keyof typeof params]?.(errorResponse)
+      : onHttpExceptionError(error);
   } finally {
     onEndCycle();
   }

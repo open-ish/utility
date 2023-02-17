@@ -19,6 +19,11 @@ const RESOURCE_ERROR_MOCK = {
 };
 const RESPONSE_RESOURCE_ERROR = { response: RESOURCE_ERROR_MOCK };
 
+const EXCEPTION_ERROR_MOCK = {
+  status: 429,
+};
+const RESPONSE_EXCEPTION_ERROR = { response: EXCEPTION_ERROR_MOCK };
+
 const fakeHttpRequest = (): Promise<void> => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -37,6 +42,7 @@ const onForbiddenError = jest.fn();
 const onResourceError = jest.fn();
 const onEndCycle = jest.fn();
 const onScriptError = jest.fn();
+const onHttpExceptionError = jest.fn();
 
 describe('trycatchfy', () => {
   beforeEach(() => {
@@ -48,6 +54,7 @@ describe('trycatchfy', () => {
       onUnauthorizedError,
       onEndCycle,
       onInternalServerError,
+      onHttpExceptionError,
       onForbiddenError,
       onResourceError,
       onScriptError,
@@ -62,6 +69,7 @@ describe('trycatchfy', () => {
       expectedBehavior: errorFactory(error),
       onInternalServerError,
       onUnauthorizedError,
+      onHttpExceptionError,
       onEndCycle,
       onForbiddenError,
       onResourceError,
@@ -71,8 +79,9 @@ describe('trycatchfy', () => {
     expect(onUnauthorizedError).not.toHaveBeenCalled();
     expect(onForbiddenError).not.toHaveBeenCalled();
     expect(onResourceError).not.toHaveBeenCalled();
-    expect(onEndCycle).toHaveBeenCalled();
+    expect(onHttpExceptionError).not.toHaveBeenCalled();
     expect(onScriptError).toHaveBeenCalledWith(error);
+    expect(onEndCycle).toHaveBeenCalled();
   });
 
   it('Should execute onInternalServerError callback', async () => {
@@ -81,6 +90,7 @@ describe('trycatchfy', () => {
       onInternalServerError,
       onUnauthorizedError,
       onEndCycle,
+      onHttpExceptionError,
       onForbiddenError,
       onResourceError,
       onScriptError,
@@ -91,6 +101,7 @@ describe('trycatchfy', () => {
     expect(onUnauthorizedError).not.toHaveBeenCalled();
     expect(onForbiddenError).not.toHaveBeenCalled();
     expect(onResourceError).not.toHaveBeenCalled();
+    expect(onHttpExceptionError).not.toHaveBeenCalled();
     expect(onEndCycle).toHaveBeenCalled();
   });
 
@@ -102,12 +113,14 @@ describe('trycatchfy', () => {
       onInternalServerError,
       onForbiddenError,
       onResourceError,
+      onHttpExceptionError,
       onScriptError,
     });
     expect(onInternalServerError).not.toHaveBeenCalled();
     expect(onUnauthorizedError).toHaveBeenCalledWith(UNAUTHORIZED_ERROR_MOCK);
     expect(onForbiddenError).not.toHaveBeenCalled();
     expect(onResourceError).not.toHaveBeenCalled();
+    expect(onHttpExceptionError).not.toHaveBeenCalled();
     expect(onEndCycle).toHaveBeenCalled();
   });
 
@@ -119,6 +132,7 @@ describe('trycatchfy', () => {
       onEndCycle,
       onInternalServerError,
       onResourceError,
+      onHttpExceptionError,
       onScriptError,
     });
 
@@ -126,6 +140,7 @@ describe('trycatchfy', () => {
     expect(onUnauthorizedError).not.toHaveBeenCalled();
     expect(onForbiddenError).toHaveBeenCalledWith(FORBIDDEN_ERROR_MOCK);
     expect(onResourceError).not.toHaveBeenCalled();
+    expect(onHttpExceptionError).not.toHaveBeenCalled();
     expect(onEndCycle).toHaveBeenCalled();
   });
   it('Should execute onResourceError callback', async () => {
@@ -137,12 +152,34 @@ describe('trycatchfy', () => {
       onInternalServerError,
       onForbiddenError,
       onScriptError,
+      onHttpExceptionError,
     });
 
     expect(onInternalServerError).not.toHaveBeenCalled();
     expect(onUnauthorizedError).not.toHaveBeenCalled();
     expect(onForbiddenError).not.toHaveBeenCalled();
+    expect(onHttpExceptionError).not.toHaveBeenCalled();
     expect(onResourceError).toHaveBeenCalledWith(RESOURCE_ERROR_MOCK);
+    expect(onEndCycle).toHaveBeenCalled();
+  });
+
+  it('Should execute onHttpExceptionError callback as we did not has mapped this error', () => {
+    trycatchfy({
+      expectedBehavior: errorFactory(RESPONSE_EXCEPTION_ERROR),
+      onEndCycle,
+      onUnauthorizedError,
+      onInternalServerError,
+      onResourceError,
+      onForbiddenError,
+      onScriptError,
+      onHttpExceptionError,
+    });
+
+    expect(onInternalServerError).not.toHaveBeenCalled();
+    expect(onUnauthorizedError).not.toHaveBeenCalled();
+    expect(onForbiddenError).not.toHaveBeenCalled();
+    expect(onResourceError).not.toHaveBeenCalled();
+    expect(onHttpExceptionError).toHaveBeenCalledWith(RESPONSE_EXCEPTION_ERROR);
     expect(onEndCycle).toHaveBeenCalled();
   });
 
@@ -155,12 +192,14 @@ describe('trycatchfy', () => {
       onResourceError,
       onForbiddenError,
       onScriptError,
+      onHttpExceptionError,
     });
 
     expect(onInternalServerError).not.toHaveBeenCalled();
     expect(onUnauthorizedError).not.toHaveBeenCalled();
     expect(onForbiddenError).not.toHaveBeenCalled();
     expect(onResourceError).not.toHaveBeenCalled();
+    expect(onHttpExceptionError).not.toHaveBeenCalled();
     expect(onEndCycle).toHaveBeenCalled();
   });
 });
