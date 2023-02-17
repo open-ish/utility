@@ -1,47 +1,5 @@
 import { trycatchfy } from './trycatchfy';
 
-// {
-//   "data": {},
-//   "status": 404,
-//   "statusText": "",
-//   "headers": {
-//       "cache-control": "max-age=43200",
-//       "content-length": "2",
-//       "content-type": "application/json; charset=utf-8",
-//       "expires": "-1",
-//       "pragma": "no-cache"
-//   },
-//   "config": {
-//       "transitional": {
-//           "silentJSONParsing": true,
-//           "forcedJSONParsing": true,
-//           "clarifyTimeoutError": false
-//       },
-//       "adapter": [
-//           "xhr",
-//           "http"
-//       ],
-//       "transformRequest": [
-//           null
-//       ],
-//       "transformResponse": [
-//           null
-//       ],
-//       "timeout": 0,
-//       "xsrfCookieName": "XSRF-TOKEN",
-//       "xsrfHeaderName": "X-XSRF-TOKEN",
-//       "maxContentLength": -1,
-//       "maxBodyLength": -1,
-//       "env": {},
-//       "headers": {
-//           "Accept": "application/json, text/plain, */*"
-//       },
-//       "method": "get",
-//       "url": "https://jsonplaceholder.typicode.com/usersss"
-//   },
-//   "request": {}
-// }
-
 const INTERNAL_SERVER_ERROR_MOCK = {
   status: 501,
 };
@@ -99,8 +57,9 @@ describe('trycatchfy', () => {
 
   it('Should throw js error as it is not a http error', async () => {
     const errorMessage = 'js forced error';
+    const error = new Error(errorMessage);
     trycatchfy({
-      expectedBehavior: errorFactory(new Error(errorMessage)),
+      expectedBehavior: errorFactory(error),
       onInternalServerError,
       onUnauthorizedError,
       onEndCycle,
@@ -113,7 +72,7 @@ describe('trycatchfy', () => {
     expect(onForbiddenError).not.toHaveBeenCalled();
     expect(onResourceError).not.toHaveBeenCalled();
     expect(onEndCycle).toHaveBeenCalled();
-    expect(onScriptError).toHaveBeenCalled();
+    expect(onScriptError).toHaveBeenCalledWith(error);
   });
 
   it('Should execute onInternalServerError callback', async () => {
@@ -126,7 +85,9 @@ describe('trycatchfy', () => {
       onResourceError,
       onScriptError,
     });
-    expect(onInternalServerError).toHaveBeenCalled();
+    expect(onInternalServerError).toHaveBeenCalledWith(
+      INTERNAL_SERVER_ERROR_MOCK
+    );
     expect(onUnauthorizedError).not.toHaveBeenCalled();
     expect(onForbiddenError).not.toHaveBeenCalled();
     expect(onResourceError).not.toHaveBeenCalled();
@@ -144,7 +105,7 @@ describe('trycatchfy', () => {
       onScriptError,
     });
     expect(onInternalServerError).not.toHaveBeenCalled();
-    expect(onUnauthorizedError).toHaveBeenCalled();
+    expect(onUnauthorizedError).toHaveBeenCalledWith(UNAUTHORIZED_ERROR_MOCK);
     expect(onForbiddenError).not.toHaveBeenCalled();
     expect(onResourceError).not.toHaveBeenCalled();
     expect(onEndCycle).toHaveBeenCalled();
@@ -163,7 +124,7 @@ describe('trycatchfy', () => {
 
     expect(onInternalServerError).not.toHaveBeenCalled();
     expect(onUnauthorizedError).not.toHaveBeenCalled();
-    expect(onForbiddenError).toHaveBeenCalled();
+    expect(onForbiddenError).toHaveBeenCalledWith(FORBIDDEN_ERROR_MOCK);
     expect(onResourceError).not.toHaveBeenCalled();
     expect(onEndCycle).toHaveBeenCalled();
   });
@@ -181,7 +142,7 @@ describe('trycatchfy', () => {
     expect(onInternalServerError).not.toHaveBeenCalled();
     expect(onUnauthorizedError).not.toHaveBeenCalled();
     expect(onForbiddenError).not.toHaveBeenCalled();
-    expect(onResourceError).toHaveBeenCalled();
+    expect(onResourceError).toHaveBeenCalledWith(RESOURCE_ERROR_MOCK);
     expect(onEndCycle).toHaveBeenCalled();
   });
 
