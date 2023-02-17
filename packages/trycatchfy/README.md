@@ -43,7 +43,7 @@ const getSomething = () => {
 
 ### By Wrapping (Suggested)
 
-First, define your pattern by wrapping `Trycatchfy`
+First, define your pattern by wrapping `Trycatchfy`. See it as a config file. Do once.
 
 ```TS
 import { trycatchfy } from './trycatchfy';
