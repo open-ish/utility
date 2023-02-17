@@ -10,9 +10,42 @@ Have you started a service and forgotten to treat some HTTP status errors? Do yo
 
 ## How to use it
 
+### Directly (Not suggested)
+
+```TS
+import { trycatchfy } from './trycatchfy';
+
+const getSomething = () => {
+  const expectedBehavior = async () => {
+    const response = await httpRequest()
+    console.log(response)
+  }
+  const onUnauthorizedError = (axiosResponse) => {
+    console.error('Sorry, looks like you do not have permission', axiosResponse)
+  }
+  const onEndCycle = () => {
+    console.log('Process stopped')
+  }
+
+    trycatchfy({
+      expectedBehavior,
+      onUnauthorizedError,
+      onEndCycle,
+      // other errors
+      // onInternalServerError,
+      // onHttpExceptionError,
+      // onForbiddenError,
+      // onResourceError,
+      // onScriptError,
+    });
+}
+```
+
+### By Wrapping (Suggested)
+
 First, define your pattern by wrapping `Trycatchfy`
 
-```sh
+```TS
 import { trycatchfy } from './trycatchfy';
 import { ITrycatchfyParams } from '../index.d';
 
@@ -21,7 +54,7 @@ interface IFakeAxios {
   status: number;
 }
 
-export const wrapperTrycatchfy = async ({
+export const wrapperTrycatchfy = ({
   expectedBehavior,
   onForbiddenError,
   onResourceError,
@@ -32,13 +65,15 @@ export const wrapperTrycatchfy = async ({
   ITrycatchfyParams<IFakeAxios>,
   'onUnauthorizedError' | 'onInternalServerError'
 >) => {
+  // treat Unauthorized Error once
   const onUnauthorizedErrorDefault = () => {
-    console.log('logout user');
+    console.log('logout the user');
   };
+  // treat Internal Server Error once
   const onInternalServerErrorDefault = () => {
     console.log('server error - reload');
   };
-  await trycatchfy<IFakeAxios>({
+  trycatchfy<IFakeAxios>({
     expectedBehavior,
     onForbiddenError,
     onResourceError,
@@ -52,6 +87,23 @@ export const wrapperTrycatchfy = async ({
 ```
 
 Then, use it on your components
+
+```TS
+import { wrapperTrycatchfy } from './wrapperTrycatchfy'
+  const expectedBehavior = async () => {
+    const response = await httpRequest()
+    console.log(response)
+  }
+
+  wrapperTrycatchfy({
+      expectedBehavior,
+      // These follow handle are also required
+      // onEndCycle,
+      // onForbiddenError,
+      // onResourceError,
+      // onScriptError,
+    });
+```
 
 ## Requirements
 
