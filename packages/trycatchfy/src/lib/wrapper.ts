@@ -23,7 +23,7 @@ export const wrapperTrycatchfy = async ({
   const onInternalServerErrorDefault = () => {
     console.log('server error - reload');
   };
-  await trycatchfy<IFakeAxios>({
+  return trycatchfy<IFakeAxios>({
     expectedBehavior,
     onForbiddenError,
     onResourceError,

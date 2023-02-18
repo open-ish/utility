@@ -20,7 +20,7 @@ export const trycatchfy = async <IAxiosErrorReponse>(
     onHttpExceptionError = unExecutableFunction,
   } = params;
   try {
-    expectedBehavior();
+    await expectedBehavior();
   } catch (error: ITrycatchfyError | any) {
     const httpAxiosStatus = error.response?.status;
     if (!httpAxiosStatus) return onScriptError(error);

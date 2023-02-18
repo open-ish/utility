@@ -48,8 +48,8 @@ describe('trycatchfy', () => {
   beforeEach(() => {
     jest.resetAllMocks();
   });
-  it('Should execute expectedBehavior callback', () => {
-    trycatchfy({
+  it('Should execute expectedBehavior callback', async () => {
+    await trycatchfy({
       expectedBehavior,
       onUnauthorizedError,
       onEndCycle,
@@ -65,7 +65,7 @@ describe('trycatchfy', () => {
   it('Should throw js error as it is not a http error', async () => {
     const errorMessage = 'js forced error';
     const error = new Error(errorMessage);
-    trycatchfy({
+    await trycatchfy({
       expectedBehavior: errorFactory(error),
       onInternalServerError,
       onUnauthorizedError,
@@ -85,7 +85,7 @@ describe('trycatchfy', () => {
   });
 
   it('Should execute onInternalServerError callback', async () => {
-    trycatchfy({
+    await trycatchfy({
       expectedBehavior: errorFactory(RESPONSE_INTERNAL_ERROR),
       onInternalServerError,
       onUnauthorizedError,
@@ -106,7 +106,7 @@ describe('trycatchfy', () => {
   });
 
   it('Should execute onUnauthorizedError callback', async () => {
-    trycatchfy({
+    await trycatchfy({
       expectedBehavior: errorFactory(RESPONSE_UNAUTHORIZED),
       onUnauthorizedError,
       onEndCycle,
@@ -125,7 +125,7 @@ describe('trycatchfy', () => {
   });
 
   it('Should execute onForbiddenError callback', async () => {
-    trycatchfy({
+    await trycatchfy({
       expectedBehavior: errorFactory(RESPONSE_FORBIDDEN_ERROR),
       onForbiddenError,
       onUnauthorizedError,
@@ -144,7 +144,7 @@ describe('trycatchfy', () => {
     expect(onEndCycle).toHaveBeenCalled();
   });
   it('Should execute onResourceError callback', async () => {
-    trycatchfy({
+    await trycatchfy({
       expectedBehavior: errorFactory(RESPONSE_RESOURCE_ERROR),
       onResourceError,
       onUnauthorizedError,
@@ -163,8 +163,8 @@ describe('trycatchfy', () => {
     expect(onEndCycle).toHaveBeenCalled();
   });
 
-  it('Should execute onHttpExceptionError callback as we did not has mapped this error', () => {
-    trycatchfy({
+  it('Should execute onHttpExceptionError callback as we did not has mapped this error', async () => {
+    await trycatchfy({
       expectedBehavior: errorFactory(RESPONSE_EXCEPTION_ERROR),
       onEndCycle,
       onUnauthorizedError,
@@ -183,8 +183,9 @@ describe('trycatchfy', () => {
     expect(onEndCycle).toHaveBeenCalled();
   });
 
-  it('Should execute onEndCycle callback', () => {
-    trycatchfy({
+  it('Should execute onEndCycle callback', async () => {
+    expectedBehavior.mockImplementation(() => Promise.resolve());
+    await trycatchfy({
       expectedBehavior,
       onEndCycle,
       onUnauthorizedError,
@@ -200,6 +201,6 @@ describe('trycatchfy', () => {
     expect(onForbiddenError).not.toHaveBeenCalled();
     expect(onResourceError).not.toHaveBeenCalled();
     expect(onHttpExceptionError).not.toHaveBeenCalled();
-    expect(onEndCycle).toHaveBeenCalled();
+    expect(onEndCycle).toBeCalled();
   });
 });

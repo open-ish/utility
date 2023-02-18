@@ -27,7 +27,7 @@ const getSomething = () => {
     console.log('Process stopped')
   }
 
-    trycatchfy({
+  trycatchfy({
       expectedBehavior,
       onUnauthorizedError,
       onEndCycle,
@@ -65,15 +65,15 @@ export const wrapperTrycatchfy = ({
   ITrycatchfyParams<IFakeAxios>,
   'onUnauthorizedError' | 'onInternalServerError'
 >) => {
-  // treat Unauthorized Error once
+  // handle Unauthorized Error once
   const onUnauthorizedErrorDefault = () => {
     console.log('logout the user');
   };
-  // treat Internal Server Error once
+  // handle Internal Server Error once
   const onInternalServerErrorDefault = () => {
     console.log('server error - reload');
   };
-  trycatchfy<IFakeAxios>({
+  return trycatchfy<IFakeAxios>({
     expectedBehavior,
     onForbiddenError,
     onResourceError,
