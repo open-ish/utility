@@ -37,6 +37,8 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+packages/*/release.config.js
+release.config.js
 
 # Secrets
 .npmrc
