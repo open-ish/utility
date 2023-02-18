@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/open-ish/utility/compare/trycatchfy-v1.2.0...trycatchfy-v1.2.1) (2023-02-18)
+
+
+### Bug Fixes
+
+* add return and await ([bb9b991](https://github.com/open-ish/utility/commit/bb9b991718207790cee8b0f28e394d074e60a9bb))
+
 # [1.2.0](https://github.com/open-ish/utility/compare/trycatchfy-v1.1.0...trycatchfy-v1.2.0) (2023-02-17)
 
 
