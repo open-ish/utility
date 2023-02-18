@@ -8,13 +8,14 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2015",
+    "target": "esnext",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": ["esnext", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@open-ish/semantic-release-exec": ["packages/extensions/src/index.ts"],
       "@open-ish/utility-trycatchfy": ["packages/featflag-by-env/src/index.ts"],
       "@utility/trycatchfy": ["packages/trycatchfy/src/index.ts"]
     }

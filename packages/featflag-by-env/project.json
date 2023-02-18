@@ -4,8 +4,12 @@
   "sourceRoot": "packages/featflag-by-env/src",
   "projectType": "library",
   "targets": {
+    "release-semantic": {
+      "executor": "@open-ish/semantic-release-exec:release"
+    },
     "release": {
       "executor": "nx:run-commands",
+      "dependsOn": ["release-semantic"],
       "outputs": [],
       "options": {
         "command": "npx semantic-release-plus --extends ./packages/featflag-by-env/release.config.js",
