@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/open-ish/utility/compare/trycatchfy-v1.2.1...trycatchfy-v1.3.0) (2023-02-24)
+
+
+### Features
+
+* define init to add custom handles ([076f35d](https://github.com/open-ish/utility/commit/076f35d23826b8126f5dc9a12501a3f4361a36b6))
+
 ## [1.2.1](https://github.com/open-ish/utility/compare/trycatchfy-v1.2.0...trycatchfy-v1.2.1) (2023-02-18)
 
 
