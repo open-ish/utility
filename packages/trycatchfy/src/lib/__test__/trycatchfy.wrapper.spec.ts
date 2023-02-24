@@ -18,6 +18,7 @@ const onResourceError = jest.fn();
 const onEndCycle = jest.fn();
 const onScriptError = jest.fn();
 const onHttpExceptionError = jest.fn();
+const myCustomStatusCode = jest.fn();
 
 const log = jest.spyOn(console, 'log');
 describe('trycatchfy with wrapper', () => {
@@ -33,6 +34,7 @@ describe('trycatchfy with wrapper', () => {
       onScriptError,
       onHttpExceptionError,
       onEndCycle,
+      myCustomStatusCode,
     });
     expect(log).toBeCalledWith('server error - reload');
   });
@@ -44,6 +46,7 @@ describe('trycatchfy with wrapper', () => {
       onForbiddenError,
       onResourceError,
       onScriptError,
+      myCustomStatusCode,
     });
     expect(log).toBeCalledWith('logout user');
   });

@@ -1,18 +1,16 @@
-import { ITrycatchfyParams, ITrycatchfyError } from '../index.d';
+import { ITrycatchfyParams, ITrycatchfyError } from '../../index.d';
+
+import { httpErrorsHelper } from './mappedErrors';
 
 const unExecutableFunction = () => null;
-const httpErrorsHelper = [
-  {
-    handleName: 'onInternalServerError',
-    statusHandle: (status: number) => String(status).startsWith('5'),
-  },
-  { handleName: 'onUnauthorizedError', statusCode: 401 },
-  { handleName: 'onForbiddenError', statusCode: 403 },
-  { handleName: 'onResourceError', statusCode: 404 },
-];
-export const trycatchfy = async <IAxiosErrorReponse>(
-  params: ITrycatchfyParams<IAxiosErrorReponse>
+
+export const trycatchfy = async <IAxiosErrorResponse>(
+  params: ITrycatchfyParams<IAxiosErrorResponse>
 ): Promise<void | Error> => {
+  params = {
+    ...params,
+    ...params.customHttpErrorsHandle,
+  };
   const {
     expectedBehavior,
     onEndCycle = unExecutableFunction,
