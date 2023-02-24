@@ -14,7 +14,7 @@ export default async function runExecutor(
     pathOutupt,
     webConfigTemplate
       .toString()
-      .replaceAll('{{PROJECT_NAME}}', context.projectName)
+      .replaceAll('{{PROJECT_NAME}}', context.projectName as string)
   );
 
   return {
