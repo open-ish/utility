@@ -1,4 +1,4 @@
-import { trycatchfy } from './trycatchfy';
+import { initTrycatchfy } from '../initTrycatchfy';
 
 const INTERNAL_SERVER_ERROR_MOCK = {
   status: 501,
@@ -24,13 +24,6 @@ const EXCEPTION_ERROR_MOCK = {
 };
 const RESPONSE_EXCEPTION_ERROR = { response: EXCEPTION_ERROR_MOCK };
 
-const fakeHttpRequest = (): Promise<void> => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve();
-    }, 2000);
-  });
-};
 const errorFactory = (payload: any) => () => {
   throw payload;
 };
@@ -43,10 +36,11 @@ const onResourceError = jest.fn();
 const onEndCycle = jest.fn();
 const onScriptError = jest.fn();
 const onHttpExceptionError = jest.fn();
-
+let trycatchfy: any;
 describe('trycatchfy', () => {
   beforeEach(() => {
     jest.resetAllMocks();
+    trycatchfy = initTrycatchfy();
   });
   it('Should execute expectedBehavior callback', async () => {
     await trycatchfy({

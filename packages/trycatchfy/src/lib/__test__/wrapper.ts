@@ -1,22 +1,36 @@
-import { trycatchfy } from './trycatchfy';
-import { ITrycatchfyParams } from '../index.d';
+import { initTrycatchfy } from '../initTrycatchfy';
+import { ITrycatchfyParams } from '../../index.d';
 
 interface IFakeAxios {
   response: any;
   status: number;
 }
+export const customHttpErrors = [
+  { statusCode: 900, handleName: 'myCustomStatusCode' },
+  {
+    statusHandle: (status: number) => status.toString().startsWith('1'),
+    handleName: 'myCustomStatusHandle',
+  },
+];
+
+const trycatchfy = initTrycatchfy({
+  customHttpErrors,
+});
 
 export const wrapperTrycatchfy = async ({
   expectedBehavior,
   onForbiddenError,
   onResourceError,
   onScriptError,
+  myCustomStatusCode,
   onEndCycle,
   onHttpExceptionError,
 }: Omit<
   ITrycatchfyParams<IFakeAxios>,
   'onUnauthorizedError' | 'onInternalServerError'
->) => {
+> & {
+  myCustomStatusCode: ITrycatchfyParams<IFakeAxios>['onResourceError'];
+}) => {
   const onUnauthorizedErrorDefault = () => {
     console.log('logout user');
   };
@@ -27,6 +41,7 @@ export const wrapperTrycatchfy = async ({
     expectedBehavior,
     onForbiddenError,
     onResourceError,
+    customHttpErrorsHandle: { myCustomStatusCode },
     onScriptError,
     onHttpExceptionError,
     onUnauthorizedError: onUnauthorizedErrorDefault,

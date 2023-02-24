@@ -1,1 +1,1 @@
-export * from './lib/trycatchfy';
+export * from './lib/initTrycatchfy';
