@@ -1,6 +1,11 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "strict": true,
+    "target": "es5",
+    "allowJs": true,
     "rootDir": ".",
     "sourceMap": true,
     "declaration": false,
@@ -8,7 +13,6 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "esnext",
     "module": "esnext",
     "lib": ["esnext", "dom"],
     "skipLibCheck": true,
