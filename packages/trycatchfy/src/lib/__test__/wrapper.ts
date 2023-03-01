@@ -7,6 +7,7 @@ interface IFakeAxios {
 }
 export const customHttpErrors = [
   { statusCode: 900, handleName: 'myCustomStatusCode' },
+  { statusCode: 901, handleName: 'myOtherCustomStatusCode' },
   {
     statusHandle: (status: number) => status.toString().startsWith('1'),
     handleName: 'myCustomStatusHandle',
@@ -17,7 +18,7 @@ const trycatchfy = initTrycatchfy({
   customHttpErrors,
 });
 
-export const wrapperTrycatchfy = async ({
+export const wrapperTrycatchfy = ({
   expectedBehavior,
   onForbiddenError,
   onResourceError,
