@@ -1,8 +1,10 @@
-import { IHttpErrorHelper } from '../../index.d';
-import { httpErrorsHelper } from './mappedErrors';
+import { IHttpMappedErrorsHelper } from '../../index.d';
+import { httpMappedErrorsHelper } from './mappedErrors';
 
-export const addCustomHttpErrors = (customHttpErrors: IHttpErrorHelper[]) => {
+export const addCustomHttpErrors = (
+  customHttpErrors: IHttpMappedErrorsHelper[]
+) => {
   customHttpErrors.forEach((error) => {
-    httpErrorsHelper.push(error);
+    httpMappedErrorsHelper.push(error);
   });
 };
