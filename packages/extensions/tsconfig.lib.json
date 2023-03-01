@@ -3,6 +3,7 @@
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
     "declaration": true,
+    "lib": ["es2021"],
     "types": ["node"]
   },
   "include": ["src/**/*.ts"],
