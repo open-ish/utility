@@ -1,6 +1,6 @@
 import { ITrycatchfyParams, ITrycatchfyError } from '../../index.d';
 
-import { httpErrorsHelper } from './mappedErrors';
+import { httpMappedErrorsHelper } from './mappedErrors';
 
 const unExecutableFunction = () => null;
 
@@ -24,7 +24,7 @@ export const trycatchfy = async <IAxiosErrorResponse>(
     if (!httpAxiosStatus) return onScriptError(error);
 
     const errorResponse = error.response;
-    const isMappedError = httpErrorsHelper.find(
+    const isMappedError = httpMappedErrorsHelper.find(
       ({ statusCode, statusHandle }) =>
         statusHandle?.(httpAxiosStatus) ?? httpAxiosStatus === statusCode
     );
