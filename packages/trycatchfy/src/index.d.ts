@@ -22,7 +22,7 @@ export interface ITrycatchfyError {
   response: { status: number };
 }
 
-export interface IHttpErrorHelper {
+export interface IHttpMappedErrorsHelper {
   handleName: string;
   statusHandle?: (status: number) => boolean;
   statusCode?: number;

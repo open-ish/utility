@@ -1,6 +1,6 @@
-import { IHttpErrorHelper } from '../../index.d';
+import { IHttpMappedErrorsHelper } from '../../index.d';
 
-export const httpErrorsHelper: IHttpErrorHelper[] = [
+export const httpMappedErrorsHelper: IHttpMappedErrorsHelper[] = [
   {
     handleName: 'onInternalServerError',
     statusHandle: (status: number) => String(status).startsWith('5'),
