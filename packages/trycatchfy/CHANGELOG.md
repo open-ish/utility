@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/open-ish/utility/compare/trycatchfy-v1.3.0...trycatchfy-v1.3.1) (2023-03-01)
+
+
+### Bug Fixes
+
+* wrapper data ([1e62a9d](https://github.com/open-ish/utility/commit/1e62a9d8d92515b59182e5f42771e29bef33f286))
+
 # [1.3.0](https://github.com/open-ish/utility/compare/trycatchfy-v1.2.1...trycatchfy-v1.3.0) (2023-02-24)
 
 
