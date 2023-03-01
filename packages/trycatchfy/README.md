@@ -27,7 +27,7 @@ const getSomething = () => {
     console.log('Process stopped')
   }
 
-  trycatchfy({
+  return trycatchfy({
       expectedBehavior,
       onUnauthorizedError,
       onEndCycle,
@@ -46,13 +46,21 @@ const getSomething = () => {
 First, define your pattern by wrapping `Trycatchfy`. See it as a config file. Do once.
 
 ```TS
-import { trycatchfy } from './trycatchfy';
+import { initTrycatchfy } from './trycatchfy';
 import { ITrycatchfyParams } from '../index.d';
 
 interface IFakeAxios {
   response: any;
   status: number;
 }
+
+export const customHttpErrors = [
+  { statusCode: 900, handleName: 'myCustomStatusCode' },
+];
+
+const trycatchfy = initTrycatchfy({
+  customHttpErrors, // optional custom handle
+});
 
 export const wrapperTrycatchfy = ({
   expectedBehavior,
