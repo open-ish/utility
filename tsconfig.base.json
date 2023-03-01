@@ -13,8 +13,8 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "module": "esnext",
-    "lib": ["esnext", "dom"],
+    "module": "commonjs",
+    "lib": ["es2019"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
@@ -24,5 +24,5 @@
       "@utility/trycatchfy": ["packages/trycatchfy/src/index.ts"]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": ["node_modules"]
 }

@@ -3,6 +3,7 @@
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
     "module": "esnext",
+    "lib": ["es2021"],
     "types": ["jest", "node"]
   },
   "include": [
