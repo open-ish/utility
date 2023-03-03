@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/open-ish/utility/compare/trycatchfy-v1.3.1...trycatchfy-v1.3.2) (2023-03-03)
+
+
+### Bug Fixes
+
+* models exports ([4c950f0](https://github.com/open-ish/utility/commit/4c950f0b5859bee97bdd1b57d4c09d0fd3e43cdd))
+
 ## [1.3.1](https://github.com/open-ish/utility/compare/trycatchfy-v1.3.0...trycatchfy-v1.3.1) (2023-03-01)
 
 
