@@ -1,5 +1,5 @@
 import { initTrycatchfy } from '../initTrycatchfy';
-import { ITrycatchfyParams } from '../../index.d';
+import { ITrycatchfyParams } from '../models';
 
 interface IFakeAxios {
   response: any;

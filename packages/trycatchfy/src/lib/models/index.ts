@@ -5,13 +5,13 @@ interface ITrycatchfyDefault<IAxiosErrorReponse> {
 }
 
 export interface ITrycatchfyParams<IAxiosErrorReponse> {
-  expectedBehavior: ITrycatchfy['expectedBehavior'];
+  expectedBehavior: ITrycatchfyDefault<IAxiosErrorReponse>['expectedBehavior'];
   onInternalServerError: ITrycatchfyDefault<IAxiosErrorReponse>['onHttpError'];
   onUnauthorizedError: ITrycatchfyDefault<IAxiosErrorReponse>['onHttpError'];
   onForbiddenError: ITrycatchfyDefault<IAxiosErrorReponse>['onHttpError'];
   onResourceError: ITrycatchfyDefault<IAxiosErrorReponse>['onHttpError'];
-  onScriptError: ITrycatchfy['onError'];
-  onHttpExceptionError?: ITrycatchfy['onError'];
+  onScriptError: ITrycatchfyDefault<IAxiosErrorReponse>['onError'];
+  onHttpExceptionError?: ITrycatchfyDefault<IAxiosErrorReponse>['onError'];
   onEndCycle: () => void;
   customHttpErrorsHandle?: {
     [key: string]: ITrycatchfyDefault<IAxiosErrorReponse>['onHttpError'];
@@ -29,5 +29,5 @@ export interface IHttpMappedErrorsHelper {
 }
 
 export interface IInitTrycatchfy {
-  customHttpErrors?: IHttpErrorHelper[];
+  customHttpErrors?: IHttpMappedErrorsHelper[];
 }

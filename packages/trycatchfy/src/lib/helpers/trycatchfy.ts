@@ -1,4 +1,4 @@
-import { ITrycatchfyParams, ITrycatchfyError } from '../../index.d';
+import { ITrycatchfyParams, ITrycatchfyError } from '../models';
 
 import { httpMappedErrorsHelper } from './mappedErrors';
 
@@ -30,7 +30,7 @@ export const trycatchfy = async <IAxiosErrorResponse>(
     );
 
     isMappedError
-      ? params[isMappedError.handleName as keyof typeof params]?.(errorResponse)
+      ? params[isMappedError.handleName]?.(errorResponse)
       : onHttpExceptionError(error);
   } finally {
     onEndCycle();

@@ -11,6 +11,6 @@
     "registry": "https://npm.pkg.github.com"
   },
   "main": "src/index.js",
-  "typings": "src/index.d.ts",
+  "types": "src/index.d.ts",
   "license": "MIT"
 }
