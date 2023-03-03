@@ -1,4 +1,4 @@
-import { IHttpMappedErrorsHelper } from '../../index.d';
+import { IHttpMappedErrorsHelper } from '../models';
 import { httpMappedErrorsHelper } from './mappedErrors';
 
 export const addCustomHttpErrors = (

@@ -1,4 +1,4 @@
-import { IInitTrycatchfy } from '../index.d';
+import { IInitTrycatchfy } from './models';
 import { addCustomHttpErrors } from './helpers/addCustomHttpErrors';
 import { trycatchfy } from './helpers/trycatchfy';
 

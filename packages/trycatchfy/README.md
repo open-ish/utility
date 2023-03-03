@@ -47,7 +47,7 @@ First, define your pattern by wrapping `Trycatchfy`. See it as a config file. Do
 
 ```TS
 import { initTrycatchfy } from './trycatchfy';
-import { ITrycatchfyParams } from '../index.d';
+import { ITrycatchfyParams } from '../index';
 
 interface IFakeAxios {
   response: any;
