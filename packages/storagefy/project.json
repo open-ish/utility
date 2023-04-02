@@ -1,7 +1,7 @@
 {
-  "name": "featflag-by-env",
+  "name": "storagefy",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "packages/featflag-by-env/src",
+  "sourceRoot": "packages/storagefy/src",
   "projectType": "library",
   "targets": {
     "release-semantic": {
@@ -12,7 +12,7 @@
       "dependsOn": ["release-semantic"],
       "outputs": [],
       "options": {
-        "command": "npx semantic-release-plus --extends ./packages/featflag-by-env/release.config.js",
+        "command": "npx semantic-release-plus --extends ./packages/storagefy/release.config.js",
         "parallel": false
       }
     },
@@ -20,24 +20,24 @@
       "executor": "@nrwl/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/featflag-by-env",
-        "main": "packages/featflag-by-env/src/index.ts",
-        "tsConfig": "packages/featflag-by-env/tsconfig.lib.json",
-        "assets": ["packages/featflag-by-env/*.md"]
+        "outputPath": "dist/packages/storagefy",
+        "main": "packages/storagefy/src/index.ts",
+        "tsConfig": "packages/storagefy/tsconfig.lib.json",
+        "assets": ["packages/storagefy/*.md"]
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["packages/featflag-by-env/**/*.ts"]
+        "lintFilePatterns": ["packages/storagefy/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "packages/featflag-by-env/jest.config.ts",
+        "jestConfig": "packages/storagefy/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {

@@ -1,11 +1,11 @@
 {
-  "name": "@open-ish/utility-featflag-by-env",
+  "name": "@open-ish/utility-storagefy",
   "version": "0.0.0-semantic-release",
   "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "https://github.com/open-ish/utility.git",
-    "directory": "packages/featflag-by-env"
+    "directory": "packages/storagefy"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"

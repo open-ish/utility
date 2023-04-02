@@ -1,16 +1,16 @@
 /* eslint-disable */
 export default {
-  displayName: 'featflag-by-env',
+  displayName: 'storagefy',
   preset: '../../jest.preset.js',
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
     },
   },
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   transform: {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../coverage/packages/featflag-by-env',
+  coverageDirectory: '../../coverage/packages/storagefy',
 };
