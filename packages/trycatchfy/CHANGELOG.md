@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/open-ish/utility/compare/trycatchfy-v1.3.2...trycatchfy-v1.4.0) (2023-04-02)
+
+
+### Features
+
+* create storagefy ([63366e7](https://github.com/open-ish/utility/commit/63366e717748369212ba6f4bc17d5f122d0ef12b))
+
 ## [1.3.2](https://github.com/open-ish/utility/compare/trycatchfy-v1.3.1...trycatchfy-v1.3.2) (2023-03-03)
 
 
