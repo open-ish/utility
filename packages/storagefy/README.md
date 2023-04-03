@@ -17,6 +17,7 @@ import { storageService } from './storagefy';
 const data = storageService.get('myObjetct')
 
 // TS
+interface ICustomType {}
 const data = storageService.get<ICustomType>('myObjetct')
 ```
 
@@ -29,5 +30,6 @@ import { storageService } from './storagefy';
 const data = storageService.set('myObjetctKey', {name: 'obj'})
 
 // TS
+interface ICustomType {}
 const data = storageService.set<ICustomType>('myObjetctKey', {name: 'obj'})
 ```
