@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/open-ish/utility/compare/storagefy-v1.0.0...storagefy-v1.1.0) (2023-04-03)
+
+
+### Features
+
+* create new feat ([9a28a8d](https://github.com/open-ish/utility/commit/9a28a8d47cea92ca9ba0de76dbcb9192ec9cb35c))
+
 # 1.0.0 (2023-04-02)
 
 
