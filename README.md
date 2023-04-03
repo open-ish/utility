@@ -8,4 +8,5 @@ It's a monorepo with npm packages, all installable independently
 
 ## Packages
 
-... things are coming... soon!
+[trycatchfy](./packages/trycatchfy/): Standardize the way you try/catch HTTP request
+[storagefy](./packages/storagefy/): LocalStorage helper

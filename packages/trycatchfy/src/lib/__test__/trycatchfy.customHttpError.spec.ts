@@ -17,7 +17,7 @@ const onHttpExceptionError = jest.fn();
 const myCustomStatusCode = jest.fn();
 
 const log = jest.spyOn(console, 'log');
-describe('trycatchfy - custom http error handle', () => {
+describe('customHttpError - custom http error handle', () => {
   it('Should call custom http error handle', () => {
     wrapperTrycatchfy({
       expectedBehavior: errorFactory(RESPONSE_CUSTOM_STATUS_CODE),
