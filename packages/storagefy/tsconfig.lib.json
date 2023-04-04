@@ -1,11 +1,12 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "module": "commonjs",
     "outDir": "../../dist/out-tsc",
     "declaration": true,
-    "lib": [
-      "dom"
-    ]
+    "suppressImplicitAnyIndexErrors": true,
+    "sourceMap": false,
+    "lib": ["dom"]
   },
   "include": ["src/**/*.ts"],
   "exclude": ["jest.config.ts", "src/**/*.spec.ts"]
