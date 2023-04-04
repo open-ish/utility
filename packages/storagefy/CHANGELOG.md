@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/open-ish/utility/compare/storagefy-v1.1.0...storagefy-v1.1.1) (2023-04-04)
+
+
+### Bug Fixes
+
+* change export type ([593e32c](https://github.com/open-ish/utility/commit/593e32c5eb2ea94dae2519319daf70fbc8e6f09f))
+
 # [1.1.0](https://github.com/open-ish/utility/compare/storagefy-v1.0.0...storagefy-v1.1.0) (2023-04-03)
 
 
