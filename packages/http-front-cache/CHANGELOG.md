@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/open-ish/utility/compare/http-front-cache-v1.0.0...http-front-cache-v1.1.0) (2024-10-26)
+
+
+### Features
+
+* create http front cache lib ([29bccae](https://github.com/open-ish/utility/commit/29bccaedfaae252eab7d7e0a168f973f239135ee))
+
 # 1.0.0 (2024-10-26)
 
 
