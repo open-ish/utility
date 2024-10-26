@@ -1,0 +1,52 @@
+{
+  "name": "http-front-cache",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/http-front-cache/src",
+  "projectType": "library",
+  "targets": {
+    "release-semantic": {
+      "executor": "@open-ish/semantic-release-exec:release"
+    },
+    "release": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["release-semantic"],
+      "outputs": [],
+      "options": {
+        "command": "npx semantic-release-plus --extends ./packages/http-front-cache/release.config.js",
+        "parallel": false
+      }
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/http-front-cache",
+        "main": "packages/http-front-cache/src/index.ts",
+        "tsConfig": "packages/http-front-cache/tsconfig.lib.json",
+        "assets": ["packages/http-front-cache/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/http-front-cache/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/http-front-cache/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}

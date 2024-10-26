@@ -1,0 +1,22 @@
+{
+  "name": "@open-ish/utility-http-front-cache",
+  "version": "0.0.0-semantic-release",
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/open-ish/utility.git",
+    "directory": "packages/http-front-cache"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "license": "MIT",
+  "dependencies": {
+    "@types/object-hash": "^3.0.6",
+    "@types/pako": "^2.0.3",
+    "object-hash": "^3.0.0",
+    "pako": "^2.1.0"
+  }
+}
