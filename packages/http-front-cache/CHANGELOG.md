@@ -1,3 +1,11 @@
+# 1.0.0 (2024-10-26)
+
+
+### Features
+
+* create http front cache lib ([bd9dce7](https://github.com/open-ish/utility/commit/bd9dce73e110e2045a19b89e0da5065bb6b8ed96))
+* create http front cache lib ([814cd99](https://github.com/open-ish/utility/commit/814cd99db34d2ed7d49be2cffbb1bb577b3336fa))
+
 ## [1.1.1](https://github.com/open-ish/utility/compare/storagefy-v1.1.0...storagefy-v1.1.1) (2023-04-04)
 
 ### Bug Fixes
