@@ -1,0 +1,4 @@
+# .eslintignore
+
+# Ignore all spec.ts files
+*.spec.ts
