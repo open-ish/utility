@@ -15,7 +15,7 @@ The `cacheOnSessionStorage` utility was created to provide a simple and efficien
 ### Example
 
 ```typescript
-import { cacheOnSessionStorage } from './http-front-cache';
+import { cacheOnSessionStorage } from '@open-ish/utility-http-front-cache';
 
 type Params = [string];
 type Result = { data: string[] };
@@ -38,7 +38,7 @@ cachedFetchData('exampleParam').then((result) => {
 Currently, the `cacheOnSessionStorage` utility only supports session storage. However, it can be easily extended to support other storage mechanisms such as local storage or indexedDB by using the `cacheFactory` function.
 
 ```typescript
-import { cacheFactory, ServiceFunction } from './http-front-cache';
+import { cacheFactory, ServiceFunction } from '@open-ish/utility-http-front-cache';
 
 const customProvider = {
   getItem: (key: string) => string
