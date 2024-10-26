@@ -1,3 +1,16 @@
+# [1.4.0](https://github.com/open-ish/utility/compare/trycatchfy-v1.3.2...trycatchfy-v1.4.0) (2024-10-26)
+
+
+### Bug Fixes
+
+* change export type ([593e32c](https://github.com/open-ish/utility/commit/593e32c5eb2ea94dae2519319daf70fbc8e6f09f))
+
+
+### Features
+
+* create new feat ([9a28a8d](https://github.com/open-ish/utility/commit/9a28a8d47cea92ca9ba0de76dbcb9192ec9cb35c))
+* create storagefy ([63366e7](https://github.com/open-ish/utility/commit/63366e717748369212ba6f4bc17d5f122d0ef12b))
+
 # [1.4.0](https://github.com/open-ish/utility/compare/trycatchfy-v1.3.2...trycatchfy-v1.4.0) (2023-04-04)
 
 
