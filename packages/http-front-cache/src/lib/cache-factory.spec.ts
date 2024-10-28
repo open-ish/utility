@@ -3,10 +3,44 @@ import { Provider } from './types';
 import pako from 'pako';
 import hash from 'object-hash';
 
-const defaultResponse = { data: [{ name: 'test', value: 'test' }] };
+// const defaultResponse = { data: [{ name: 'test', value: 'test' }] };
 const defaultParams = { param: 'test' };
 const defaultHashedParams = hash([defaultParams]);
-
+const biggerParams = { param: 'test', param2: 'test', param3: 'test' };
+const biggerHashedParams = hash([biggerParams]);
+const defaultResponse = {
+  login: 'tassioFront',
+  avatar_url: 'https://avatars.githubusercontent.com/u/47509510?v=4',
+  gravatar_id: '',
+  url: 'https://api.github.com/users/tassioFront',
+  html_url: 'https://github.com/tassioFront',
+  followers_url: 'https://api.github.com/users/tassioFront/followers',
+  following_url:
+    'https://api.github.com/users/tassioFront/following{/other_user}',
+  gists_url: 'https://api.github.com/users/tassioFront/gists{/gist_id}',
+  starred_url:
+    'https://api.github.com/users/tassioFront/starred{/owner}{/repo}',
+  subscriptions_url: 'https://api.github.com/users/tassioFront/subscriptions',
+  organizations_url: 'https://api.github.com/users/tassioFront/orgs',
+  repos_url: 'https://api.github.com/users/tassioFront/repos',
+  events_url: 'https://api.github.com/users/tassioFront/events{/privacy}',
+  received_events_url:
+    'https://api.github.com/users/tassioFront/received_events',
+  type: 'User',
+  site_admin: false,
+  name: 'Tássio',
+  company: '@juntossomosmais',
+  blog: 'https://frontend-pattern.vercel.app/about',
+  location: 'Brazil',
+  bio: "I'm FrontEnd Developer that love wine and coffee. ☕️🍷👨🏻‍💻",
+  twitter_username: null,
+  public_repos: 53,
+  public_gists: 0,
+  followers: 106,
+  following: 77,
+  created_at: '2019-02-10T23:25:10Z',
+  updated_at: '2024-10-01T12:19:58Z',
+};
 const mockServiceFunction = jest.fn(async (param: any) => {
   return defaultResponse;
 });
@@ -16,7 +50,7 @@ const expireTime = 5 * 60 * 1000;
 const provider: Record<string, string> = {};
 
 const mockProvider: Provider = {
-  getItem: (key) => JSON.stringify(provider[key]) || null,
+  getItem: (key) => provider[key] as unknown as Uint8Array,
   setItem: (key, value) => {
     // @ts-ignore
     provider[key] = value;
@@ -57,32 +91,38 @@ describe('cacheFactory', () => {
     const cachedEntry = mockProvider.getItem(defaultHashedParams);
     expect(cachedEntry).not.toBeNull();
 
-    const decompressedEntry = pako.inflate(JSON.parse(cachedEntry as string), {
+    const decompressedEntry = pako.inflate(cachedEntry, {
       to: 'string',
     });
     const entry = JSON.parse(decompressedEntry);
     expect(entry.data).toEqual(defaultResponse);
   });
 
-  it('should call the service function again if the cache has expired and remove the data from the storage', async () => {
-    await cachedServiceFunction(defaultParams);
+  test.each([
+    [defaultParams, defaultHashedParams],
+    [biggerParams, biggerHashedParams],
+  ])(
+    'should call the service function again if the cache has expired and remove the data from the storage',
+    async (params, hashedParams) => {
+      await cachedServiceFunction(params);
 
-    const cachedEntry = mockProvider.getItem(defaultHashedParams) as string;
-    const decompressedEntry = pako.inflate(JSON.parse(cachedEntry), {
-      to: 'string',
-    });
-    const entry = JSON.parse(decompressedEntry);
+      const cachedEntry = mockProvider.getItem(hashedParams);
+      const decompressedEntry = pako.inflate(cachedEntry, {
+        to: 'string',
+      });
+      const entry = JSON.parse(decompressedEntry);
 
-    // forcing the cache to expire
-    entry.timestamp -= expireTime + 1;
-    const expiredCompressedEntry = pako.deflate(JSON.stringify(entry));
-    mockProvider.setItem(defaultHashedParams, expiredCompressedEntry);
+      // forcing the cache to expire
+      entry.timestamp -= expireTime + 1;
+      const expiredCompressedEntry = pako.deflate(JSON.stringify(entry));
+      mockProvider.setItem(hashedParams, expiredCompressedEntry);
 
-    const result = await cachedServiceFunction(defaultParams);
-    expect(result).toEqual(defaultResponse);
-    expect(mockServiceFunction).toHaveBeenCalledTimes(2);
-    expect(mockProvider.getItem(defaultHashedParams)).not.toBeNull();
-  });
+      const result = await cachedServiceFunction(params);
+      expect(result).toEqual(defaultResponse);
+      expect(mockServiceFunction).toHaveBeenCalledTimes(2);
+      expect(mockProvider.getItem(hashedParams)).not.toBeNull();
+    }
+  );
 
   it('should not set data in the cache if the service function throws an error', async () => {
     mockServiceFunction.mockImplementationOnce(async () => {
@@ -98,6 +138,6 @@ describe('cacheFactory', () => {
 
     expect(mockServiceFunction).toHaveBeenCalledTimes(1);
     expect(errorMessage).toBe('Error');
-    expect(mockProvider.getItem(defaultHashedParams)).toBeNull();
+    expect(mockProvider.getItem(defaultHashedParams)).toBeUndefined();
   });
 });

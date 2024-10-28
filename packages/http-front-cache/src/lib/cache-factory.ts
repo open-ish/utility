@@ -13,7 +13,7 @@ export const cacheFactory = async <TParams extends unknown[], TResult>({
   const cachedEntry = provider.getItem(key);
 
   if (cachedEntry) {
-    const decompressedEntry = pako.inflate(JSON.parse(cachedEntry), {
+    const decompressedEntry = pako.inflate(cachedEntry, {
       to: 'string',
     });
     const entry = JSON.parse(decompressedEntry) as CacheEntry<TResult>;

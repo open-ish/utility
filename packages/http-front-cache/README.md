@@ -41,9 +41,9 @@ Currently, the `cacheOnSessionStorage` utility only supports session storage. Ho
 import { cacheFactory, ServiceFunction } from '@open-ish/utility-http-front-cache';
 
 const customProvider = {
-  getItem: (key: string) => string
-  setItem: (key, value) => void
-  removeItem: (key) => void
+  getItem: (key: string) => Uint8Array; // cacheFactory converts the result from serviceFunction on UInt8Array, so you can assumes that the data returned on getItem is always a UInt8Array
+  setItem: (key: string, value: Uint8Array) => void;
+  removeItem: (key: string) => void;
 };
 
 export const cacheOnMyCustomProvider = <TParams extends unknown[], TResult>(

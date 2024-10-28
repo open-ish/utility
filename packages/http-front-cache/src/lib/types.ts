@@ -4,8 +4,8 @@ export interface CacheEntry<TResult> {
 }
 
 export type Provider = {
-  getItem: (key: string) => string | null;
-  setItem: <T>(key: string, value: T) => void;
+  getItem: (key: string) => Uint8Array;
+  setItem: (key: string, value: Uint8Array) => void;
   removeItem: (key: string) => void;
 };
 
