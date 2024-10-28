@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/open-ish/utility/compare/http-front-cache-v1.1.0...http-front-cache-v1.2.0) (2024-10-28)
+
+
+### Features
+
+* force new version ([aeda040](https://github.com/open-ish/utility/commit/aeda040d24927e1e38669889cc51540cf2f710b9))
+
 # [1.1.0](https://github.com/open-ish/utility/compare/http-front-cache-v1.0.0...http-front-cache-v1.1.0) (2024-10-26)
 
 
