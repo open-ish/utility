@@ -3,7 +3,6 @@ import { Provider } from './types';
 import pako from 'pako';
 import hash from 'object-hash';
 
-// const defaultResponse = { data: [{ name: 'test', value: 'test' }] };
 const defaultParams = { param: 'test' };
 const defaultHashedParams = hash([defaultParams]);
 const biggerParams = { param: 'test', param2: 'test', param3: 'test' };
