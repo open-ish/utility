@@ -1,8 +1,8 @@
-# cache-on-session-storage
+# http front cache
 
 ## Motivation
 
-The `cacheOnSessionStorage` utility was created to provide a simple and efficient way to cache the results of service functions in the browser's session storage. This can significantly improve the performance of applications by reducing the number of redundant network requests and computations. However, it is important to use this utility with caution and adhere to the following constraints:
+The `http-front-cache` utility was created to provide a simple and efficient way to cache the results of service functions in the browser's session storage. This can significantly improve the performance of applications by reducing the number of redundant network requests and computations. However, it is important to use this utility with caution and adhere to the following constraints:
 
 1. The data to be cached is not too big.
 2. The data to be cached is not sensitive.
