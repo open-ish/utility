@@ -64,7 +64,7 @@ describe('cacheFactory', () => {
     expect(entry.data).toEqual(defaultResponse);
   });
 
-  it('should call the service function again if the cache has expired and remove the data from the storage', async () => {
+  it('should call the service function again if the cache has expired and remove the data from the provider', async () => {
     await cachedServiceFunction(defaultParams);
 
     const cachedEntry = mockProvider.getItem(defaultHashedParams) as string;
