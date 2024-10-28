@@ -25,5 +25,7 @@ It's a monorepo with npm packages, all installable independently
 //npm.pkg.github.com/:_authToken=GITHUB_TOKEN
 @open-ish:registry=https://npm.pkg.github.com
 ```
-- more info in [github docs](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)
-- Install any package you want
+- install any package you want
+
+more info in [github docs](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)
+
