@@ -16,16 +16,14 @@ It's a monorepo with npm packages, all installable independently
 - [storagefy](./packages/storagefy/): LocalStorage helper - [example](https://github.com/tassioFront/frontend-pattern/blob/main/src/helpers/useInfo.ts#L6);
 - [http-front-cache](./packages/http-front-cache): Provide a simple and efficient way to cache the results of service functions in the browser;
 
-
 ## Installing utility packages
 
-- create the GITHUB_TOKEN in [personal-access-tokens-classic](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#personal-access-tokens-classic)
-- create a `.npmrc` file in the root of the project with the following content:
-```
-//npm.pkg.github.com/:_authToken=GITHUB_TOKEN
-@open-ish:registry=https://npm.pkg.github.com
-```
-- install any package you want
+NPM packages are available on npmjs.com, so you can install them using npm or yarn and following the anatomy `utility-PACKAGE_NAME`. Ex:
 
-more info in [github docs](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)
+```bash
+npm i utility-http-front-cache
+```
 
+```bash
+yarn add utility-storagefy
+```
