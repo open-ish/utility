@@ -1,3 +1,11 @@
+# [1.5.0](https://github.com/open-ish/utility/compare/http-front-cache-v1.4.0...http-front-cache-v1.5.0) (2024-10-29)
+
+
+### Features
+
+* change name ([1a6148b](https://github.com/open-ish/utility/commit/1a6148bc7e294b3ff61b91afd6fd54176a7f5505))
+* change package name ([993cb39](https://github.com/open-ish/utility/commit/993cb39034b5ee2c0b039688ff00a7512edcc1af))
+
 # [1.4.0](https://github.com/open-ish/utility/compare/http-front-cache-v1.3.0...http-front-cache-v1.4.0) (2024-10-29)
 
 
