@@ -1,5 +1,5 @@
 {
-  "name": "@open-ish/utility-http-front-cache",
+  "name": "openish/utility-http-front-cache",
   "version": "0.0.0-semantic-release",
   "type": "commonjs",
   "repository": {
