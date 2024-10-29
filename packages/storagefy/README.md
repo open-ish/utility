@@ -2,6 +2,10 @@
 
 LocalStorage helper
 
+```bash
+npm i utility-storagefy
+```
+
 ## Motivation
 
 Have you needed to create a localStorage service? I guess you have. The`storagefy` helper resolves it at once.

@@ -25,7 +25,7 @@ Object.defineProperty(window, 'localStorage', {
   value: localStorageMock,
 });
 
-describe('Storagefy', () => {
+describe('storagefy', () => {
   const THERE_IS_NOT_AT_STORAGE = 'not-exist';
   const OBJECT_TYPE = 'object';
   const STRING_TYPE = 'string';
