@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/open-ish/utility/compare/http-front-cache-v1.2.0...http-front-cache-v1.3.0) (2024-10-29)
+
+
+### Features
+
+* add one more test ([86d5298](https://github.com/open-ish/utility/commit/86d52984c2104867e7575cfc1dbae5019f7228e7))
+
 # [1.2.0](https://github.com/open-ish/utility/compare/http-front-cache-v1.1.0...http-front-cache-v1.2.0) (2024-10-28)
 
 
