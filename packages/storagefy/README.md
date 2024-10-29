@@ -15,7 +15,7 @@ Have you needed to create a localStorage service? I guess you have. The`storagef
 ### get data
 
 ```TS
-import { storageService } from '@open-ish/utility-storagefy';
+import { storageService } from 'utility-storagefy';
 
 // JS
 const data = storageService.get('myObjetct')

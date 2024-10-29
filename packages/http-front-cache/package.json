@@ -7,6 +7,12 @@
     "url": "https://github.com/open-ish/utility.git",
     "directory": "packages/http-front-cache"
   },
+  "keywords": [
+    "http",
+    "cache",
+    "front",
+    "http-front-cache"
+  ],
   "main": "src/index.js",
   "types": "src/index.d.ts",
   "license": "MIT",

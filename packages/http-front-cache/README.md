@@ -19,7 +19,7 @@ The `http-front-cache` utility was created to provide a simple and efficient way
 ### Example
 
 ```typescript
-import { cacheOnSessionStorage } from '@open-ish/utility-http-front-cache';
+import { cacheOnSessionStorage } from 'utility-http-front-cache';
 
 type Params = [string];
 type Result = { data: string[] };
@@ -42,7 +42,7 @@ cachedFetchData('exampleParam').then((result) => {
 Currently, the `cacheOnSessionStorage` utility only supports [session storage as provider](https://github.com/open-ish/utility/blob/c6d98898bbc6119cd482b736f57ec897443e71de/packages/http-front-cache/src/lib/providers/session-storage.ts#L1-L8). However, it can be easily extended to support other storage mechanisms such as local storage or indexedDB by using the `cacheFactory` function.
 
 ```typescript
-import { cacheFactory, ServiceFunction } from '@open-ish/utility-http-front-cache';
+import { cacheFactory, ServiceFunction } from 'utility-http-front-cache';
 
 const customProvider = {
   getItem: (key: string) => Uint8Array; // cacheFactory converts the result from serviceFunction on UInt8Array, so you can assumes that the data returned on getItem is always a UInt8Array. Example of provider here https://github.com/open-ish/utility/blob/c6d98898bbc6119cd482b736f57ec897443e71de/packages/http-front-cache/src/lib/providers/session-storage.ts#L1-L8
