@@ -123,6 +123,13 @@ describe('cacheFactory', () => {
     }
   );
 
+  it('Should not call the service function again if cache is available', async () => {
+    await cachedServiceFunction(defaultParams);
+    expect(mockServiceFunction).toHaveBeenCalledTimes(1);
+    await cachedServiceFunction(defaultParams);
+    expect(mockServiceFunction).toHaveBeenCalledTimes(1);
+  });
+
   it('should not set data in the cache if the service function throws an error', async () => {
     mockServiceFunction.mockImplementationOnce(async () => {
       throw new Error('Error');
