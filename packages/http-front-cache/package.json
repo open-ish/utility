@@ -1,15 +1,11 @@
 {
-  "name": "openish/utility-http-front-cache",
+  "name": "utility-http-front-cache",
   "version": "0.0.0-semantic-release",
   "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "https://github.com/open-ish/utility.git",
     "directory": "packages/http-front-cache"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
-    "description": "Utility to cache http responses in the browser"
   },
   "main": "src/index.js",
   "types": "src/index.d.ts",
