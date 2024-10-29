@@ -8,7 +8,8 @@
     "directory": "packages/http-front-cache"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "description": "Utility to cache http responses in the browser"
   },
   "main": "src/index.js",
   "types": "src/index.d.ts",
