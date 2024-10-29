@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/open-ish/utility/compare/storagefy-v1.1.1...storagefy-v1.2.0) (2024-10-29)
+
+
+### Features
+
+* use npm instead ([e968cc2](https://github.com/open-ish/utility/commit/e968cc267d42108dac38ce5eb73e221f282e4fdd))
+
 ## [1.1.1](https://github.com/open-ish/utility/compare/storagefy-v1.1.0...storagefy-v1.1.1) (2023-04-04)
 
 
