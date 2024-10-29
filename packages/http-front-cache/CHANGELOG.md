@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/open-ish/utility/compare/http-front-cache-v1.3.0...http-front-cache-v1.4.0) (2024-10-29)
+
+
+### Features
+
+* add description ([fd7c0a6](https://github.com/open-ish/utility/commit/fd7c0a63e9dbddc71040fb55fbb8e004f1038a35))
+* use npm ([ada72c3](https://github.com/open-ish/utility/commit/ada72c3ef15c3e7b775d48059a6109529ea6c1bf))
+
 # [1.3.0](https://github.com/open-ish/utility/compare/http-front-cache-v1.2.0...http-front-cache-v1.3.0) (2024-10-29)
 
 
