@@ -10,6 +10,21 @@
 
 * create new feat ([9a28a8d](https://github.com/open-ish/utility/commit/9a28a8d47cea92ca9ba0de76dbcb9192ec9cb35c))
 * create storagefy ([63366e7](https://github.com/open-ish/utility/commit/63366e717748369212ba6f4bc17d5f122d0ef12b))
+* use npm for old packages ([6b7bf70](https://github.com/open-ish/utility/commit/6b7bf7032cb0f495b0d02cc4e8e262cee89248ae))
+* use npm instead ([e968cc2](https://github.com/open-ish/utility/commit/e968cc267d42108dac38ce5eb73e221f282e4fdd))
+
+# [1.4.0](https://github.com/open-ish/utility/compare/trycatchfy-v1.3.2...trycatchfy-v1.4.0) (2024-10-29)
+
+
+### Bug Fixes
+
+* change export type ([593e32c](https://github.com/open-ish/utility/commit/593e32c5eb2ea94dae2519319daf70fbc8e6f09f))
+
+
+### Features
+
+* create new feat ([9a28a8d](https://github.com/open-ish/utility/commit/9a28a8d47cea92ca9ba0de76dbcb9192ec9cb35c))
+* create storagefy ([63366e7](https://github.com/open-ish/utility/commit/63366e717748369212ba6f4bc17d5f122d0ef12b))
 * use npm instead ([e968cc2](https://github.com/open-ish/utility/commit/e968cc267d42108dac38ce5eb73e221f282e4fdd))
 
 # [1.4.0](https://github.com/open-ish/utility/compare/trycatchfy-v1.3.2...trycatchfy-v1.4.0) (2024-10-26)
