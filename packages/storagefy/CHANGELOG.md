@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/open-ish/utility/compare/storagefy-v1.2.0...storagefy-v1.3.0) (2024-10-29)
+
+
+### Features
+
+* use npm for old packages ([6b7bf70](https://github.com/open-ish/utility/commit/6b7bf7032cb0f495b0d02cc4e8e262cee89248ae))
+
 # [1.2.0](https://github.com/open-ish/utility/compare/storagefy-v1.1.1...storagefy-v1.2.0) (2024-10-29)
 
 
