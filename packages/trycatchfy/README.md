@@ -2,6 +2,10 @@
 
 Standardize the way you try/catch HTTP request
 
+```bash
+npm i utility-trycatchfy
+```
+
 ## Motivation
 
 Have you started a service and forgotten to treat some HTTP status errors? Do you know how to treat an HTTP status error? Or worst, you know how to treat an HTTP request error, but all time do you need to remember someone how to do that thought pull request?

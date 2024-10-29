@@ -42,7 +42,7 @@ describe('trycatchfy', () => {
     jest.resetAllMocks();
     trycatchfy = initTrycatchfy();
   });
-  it('Should execute expectedBehavior callback', async () => {
+  it('Should execute expectedBehavior callback when given', async () => {
     await trycatchfy({
       expectedBehavior,
       onUnauthorizedError,

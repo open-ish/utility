@@ -1,5 +1,9 @@
 # http front cache
 
+```bash
+npm i utility-http-front-cache
+```
+
 ## Motivation
 
 The `http-front-cache` utility was created to provide a simple and efficient way to cache the results of service functions in the browser's session storage. This can significantly improve the performance of applications by reducing the number of redundant network requests and computations. However, it is important to use this utility with caution and adhere to the following constraints:
