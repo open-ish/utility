@@ -1,0 +1,31 @@
+{
+  "name": "fake-d-pr-m",
+  "version": "0.0.0-semantic-release",
+  "description": "A script to merge Dependabot PRs into a single PR",
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/open-ish/utility.git",
+    "directory": "packages/dependabot-pr-manager"
+  },
+  "keywords": [
+    "pull request",
+    "dependabot"
+  ],
+  "scripts": {
+    "merge-dependabot-prs": "node ./src/lib/script.mjs",
+    "build": "mkdir -p bin && cp ./src/lib/script.mjs ./bin/merge-dependabot-prs"
+  },
+  "bin": {
+    "merge-dependabot-prs": "./src/lib/script.mjs"
+  },
+  "main": "script.mjs",
+  "license": "MIT",
+  "devDependencies": {
+    "@octokit/rest": "19.0.0",
+    "yargs": "17.0.0"
+  },
+  "author": {
+    "name": "Open-ish"
+  }
+}

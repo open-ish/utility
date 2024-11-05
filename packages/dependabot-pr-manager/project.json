@@ -1,0 +1,51 @@
+{
+  "name": "dependabot-pr-manager",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/dependabot-pr-manager/src",
+  "projectType": "library",
+  "targets": {
+    "release-semantic": {
+      "executor": "@open-ish/semantic-release-exec:release"
+    },
+    "release": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npx semantic-release-plus --extends ./packages/dependabot-pr-manager/release.config.js",
+        "parallel": false
+      }
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/dependabot-pr-manager",
+        "main": "packages/dependabot-pr-manager/src/index.ts",
+        "tsConfig": "packages/dependabot-pr-manager/tsconfig.lib.json",
+        "assets": ["packages/dependabot-pr-manager/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/dependabot-pr-manager/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/dependabot-pr-manager/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
