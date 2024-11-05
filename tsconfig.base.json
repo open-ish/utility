@@ -19,11 +19,13 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@open-ish/dependabot-pr-manager": [
+        "packages/dependabot-pr-manager/src/index.ts"
+      ],
       "@open-ish/http-front-cache": ["packages/http-front-cache/src/index.ts"],
       "@open-ish/semantic-release-exec": ["packages/extensions/src/index.ts"],
       "@open-ish/utility-trycatchfy": ["packages/storagefy/src/index.ts"],
-      "@utility/trycatchfy": ["packages/trycatchfy/src/index.ts"],
-      "@open-ish/dependabot-pr-manager": ["packages/dependabot-pr-manager/src/index.ts"],
+      "@utility/trycatchfy": ["packages/trycatchfy/src/index.ts"]
     }
   },
   "exclude": ["node_modules"]
