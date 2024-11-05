@@ -1,7 +1,7 @@
 {
   "name": "fake-d-pr-m",
   "version": "0.0.0-semantic-release",
-  "description": "A script to merge Dependabot PRs into a single PR",
+  "description": "A script to manager Dependabot PRs",
   "type": "commonjs",
   "repository": {
     "type": "git",
