@@ -15,3 +15,6 @@ updates:
     target-branch: main
     registries:
       - npm-registry-npm-pkg-github-com
+    ignore:
+      - dependency-name: "@nrwl/*
+        update-types: ["version-update:semver-major"]
