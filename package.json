@@ -12,7 +12,7 @@
     "@commitlint/config-nx-scopes": "^17.4.3",
     "@commitlint/cz-commitlint": "^17.4.2",
     "commitizen": "^4.3.0",
-    "lint-staged": "^13.1.2",
+    "lint-staged": "^15.2.10",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
