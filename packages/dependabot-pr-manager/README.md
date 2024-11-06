@@ -88,3 +88,13 @@ jobs:
 
 - merge-dependabot-prs Job: This job runs the merge-dependabot-prs script to group and merge Dependabot PRs.
 - close-dependabot-prs Job: This job runs the close-dependabot-prs script to close the Dependabot PRs when the pull request created from dependabot-pr-manager be commented with `'[dependabot-pr-manager] close prs'`.
+
+## Package params
+
+- `--repoUrl`(required): The repository URL;
+- `--combinedBranch`(required): The branch that will be created with the combined PRs;
+- `--mainBranch`(required): The main branch of the repository;
+- `--githubToken`(required): The GitHub token;
+- `--repoOwner`(required): The repository owner;
+- `--repoName`(required): The repository name;
+- `installDepsCommand`: The command to install the dependencies. Default: `yarn install`

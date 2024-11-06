@@ -44,6 +44,13 @@ const argv = yargs(hideBin(process.argv))
     description: 'Repository name',
     type: 'string',
     demandOption: true,
+  })
+  .option('installDepsCommand', {
+    alias: 'i',
+    description: 'Command to install dependencies - default is yarn install',
+    type: 'string',
+    default: 'yarn install',
+    demandOption: false,
   }).argv;
 
 // Constants from command-line arguments
@@ -53,6 +60,7 @@ const MAIN_BRANCH = argv.mainBranch;
 const GITHUB_TOKEN = argv.githubToken;
 const REPO_OWNER = argv.repoOwner;
 const REPO_NAME = argv.repoName;
+const INSTALL_DEPS_COMMAND = argv.installDepsCommand;
 
 const colors = {
   reset: '\x1b[0m',
@@ -154,7 +162,7 @@ async function main() {
   const dependencies = await extractDependencies(dependabotPRs);
   updatePackageJson(dependencies);
   console.log(`${colors.blue}Installing new dependencies...${colors.reset}`);
-  execSync('yarn install');
+  execSync(INSTALL_DEPS_COMMAND);
   console.log(
     `${colors.blue}Creating new branch ${COMBINED_BRANCH}...${colors.reset}`
   );
@@ -162,7 +170,7 @@ async function main() {
 
   console.log(`${colors.blue}Committing and pushing changes...${colors.reset}`);
   execSync('git add .');
-  execSync('git commit -m "ci: combined dependabot updates"');
+  execSync('git commit -m "ci: combined dependabot updates" -n');
   execSync(`git push origin ${COMBINED_BRANCH}`);
 
   console.log(`${colors.blue}Creating pull request...${colors.reset}`);

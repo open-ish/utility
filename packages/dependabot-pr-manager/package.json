@@ -30,5 +30,5 @@
   "author": {
     "name": "Open-ish"
   },
-  "readme": "README.md"
+  "readme": "./README.md"
 }
