@@ -7,7 +7,6 @@ import path from 'path';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
-// Command-line arguments
 const argv = yargs(hideBin(process.argv))
   .option('repoUrl', {
     alias: 'r',
@@ -53,7 +52,6 @@ const argv = yargs(hideBin(process.argv))
     demandOption: false,
   }).argv;
 
-// Constants from command-line arguments
 const REPO_URL = argv.repoUrl;
 const COMBINED_BRANCH = argv.combinedBranch;
 const MAIN_BRANCH = argv.mainBranch;
@@ -160,6 +158,14 @@ async function main() {
   const repoName = path.basename(REPO_URL, '.git');
   const dependabotPRs = await getDependabotPRs();
   const dependencies = await extractDependencies(dependabotPRs);
+
+  if (Object.keys(dependencies).length === 0) {
+    console.log(
+      `${colors.yellow}No dependencies to update. Exiting...${colors.reset}`
+    );
+    return;
+  }
+
   updatePackageJson(dependencies);
   console.log(`${colors.blue}Installing new dependencies...${colors.reset}`);
   execSync(INSTALL_DEPS_COMMAND);
@@ -174,6 +180,12 @@ async function main() {
   execSync(`git push origin ${COMBINED_BRANCH}`);
 
   console.log(`${colors.blue}Creating pull request...${colors.reset}`);
+  const dependenciesList = Object.entries(dependencies)
+    .map(([name, version]) => `- **${name}**: ${version}`)
+    .join('\n');
+
+  const prBody = `This pull request combines all Dependabot updates for this month.\n\n### Updated Dependencies:\n${dependenciesList}`;
+
   const { data: pr } = await octokit.pulls.create({
     headers: {
       authorization: `token ${GITHUB_TOKEN}`,
@@ -183,7 +195,7 @@ async function main() {
     title: 'ci: combined Dependabot Updates',
     head: COMBINED_BRANCH,
     base: MAIN_BRANCH,
-    body: 'This pull request combines all Dependabot updates for this month.',
+    body: prBody,
   });
 
   console.log(
