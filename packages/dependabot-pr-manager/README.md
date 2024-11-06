@@ -1,73 +1,81 @@
-# http front cache
+# dependabot-pr-manager
+
+## Installation
+
+Install it on devDependencies. Ex:
 
 ```bash
-npm i utility-http-front-cache
+npm i dependabot-pr-manager -D
 ```
 
 ## Motivation
 
-1. The data to be cached is not too big.
-2. The data to be cached is not sensitive.
-3. The data to be cached does not change too often.
-4. The cache does not need to be updated based on user navigation (e.g., caching cart data is not recommended as the user can add more products and the cache will not be updated).
-5. The service parameters do not change too often (if they change too often, the cache will not be used).
+`dependabot-pr-manager` is a utility to manage dependabot PRs. It groups DependaBot PRs on the repository and creates a PR with the updated dependencies. It is useful when you have multiple dependabot PRs and you want to merge them all at once.
 
 ## How to Use
 
-### Example
+You can use the `dependabot-pr-manager` library in your CI pipeline to automatically manage and merge Dependabot PRs. Below is an example of how to set up a GitHub Action to run the `dependabot-pr-manager` script on the second day of every month and allow manual triggering via a GitHub button. Additionally, it includes a job to close the Dependabot PRs when the created PR is commented with "[dependabot-pr-manager] close prs".
 
-```typescript
-import { cacheOnSessionStorage } from 'utility-http-front-cache';
+file example: .github/workflows/dependabot-pr-manager.yml
 
-type Params = [string];
-type Result = { data: string[] };
+```yaml
+name: Merge and Close Dependabot PRs
 
-const fetchData: ServiceFunction<Params, Result> = async (param: string) => {
-  const response = await fetch(`https://api.example.com/data?param=${param}`);
-  return response.json();
-};
+on:
+  schedule:
+    - cron: '0 0 2 * *' # Runs at 00:00 on the 2nd day of every month, so if your dependabot runs monthly in the first day, all PRs will be merged on the second day
+  workflow_dispatch: # Allows manual triggering via GitHub button
+  issue_comment:
+    types: [created]
 
-const cachedFetchData = cacheOnSessionStorage(fetchData, 5 * 60 * 1000); // Cache for 5 minutes
+jobs:
+  merge-dependabot-prs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-// Usage
-cachedFetchData('exampleParam').then((result) => {
-  console.log(result);
-});
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run merge-dependabot-prs
+        run: |
+          npx merge-dependabot-prs \
+            --repoUrl=https://github.com/open-ish/utility.git \
+            --combinedBranch=ci/combined-dependabot-update \
+            --mainBranch=main \
+            --githubToken=${{ secrets.YOUR_GIT_HUB_TOKEN }} \
+            --repoOwner=open-ish \
+            --repoName=utility
+
+  close-dependabot-prs:
+    if: github.event.issue.pull_request && contains(github.event.comment.body, '[dependabot-pr-manager] close prs')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run close-dependabot-prs
+        run: |
+          npx close-dependabot-prs \
+            --repoUrl=https://github.com/open-ish/utility.git \
+            --githubToken=${{ secrets.YOUR_GIT_HUB_TOKEN }} \
+            --repoOwner=open-ish \
+            --repoName=utility
 ```
 
-## Another Storage
-
-Currently, the `cacheOnSessionStorage` utility only supports [session storage as provider](https://github.com/open-ish/utility/blob/c6d98898bbc6119cd482b736f57ec897443e71de/packages/http-front-cache/src/lib/providers/session-storage.ts#L1-L8). However, it can be easily extended to support other storage mechanisms such as local storage or indexedDB by using the `cacheFactory` function.
-
-```typescript
-import { cacheFactory, ServiceFunction } from 'utility-http-front-cache';
-
-const customProvider = {
-  getItem: (key: string) => Uint8Array; // cacheFactory converts the result from serviceFunction on UInt8Array, so you can assumes that the data returned on getItem is always a UInt8Array. Example of provider here https://github.com/open-ish/utility/blob/c6d98898bbc6119cd482b736f57ec897443e71de/packages/http-front-cache/src/lib/providers/session-storage.ts#L1-L8
-  setItem: (key: string, value: Uint8Array) => void;
-  removeItem: (key: string) => void;
-};
-
-export const cacheOnMyCustomProvider = <TParams extends unknown[], TResult>(
-  serviceFunction: ServiceFunction<TParams, TResult>,
-  expire: number
-): ServiceFunction<TParams, TResult> => {
-  return async (...params: TParams): Promise<TResult> => {
-    return cacheFactory<TParams, TResult>({
-      params,
-      expire,
-      serviceFunction: fetchData,
-      provider: customProvider,
-    });
-  };
-};
-
-// usage
-const cachedFetchData = cacheOnMyCustomProvider(fetchData, 5 * 60 * 1000); // Cache for 5 minutes
-
-cachedFetchData('exampleParam').then((result) => {
-  console.log(result);
-});
-
-
-```
+- merge-dependabot-prs Job: This job runs the merge-dependabot-prs script to group and merge Dependabot PRs.
+- close-dependabot-prs Job: This job runs the close-dependabot-prs script to close the Dependabot PRs when the pull request created from dependabot-pr-manager be commented with `'[dependabot-pr-manager] close prs'`.

@@ -1,5 +1,5 @@
 {
-  "name": "utility--pr-manager",
+  "name": "utility-dependabot-pr-manager",
   "version": "0.0.0-semantic-release",
   "description": "A script to manager Dependabot PRs",
   "type": "commonjs",
@@ -13,13 +13,15 @@
     "dependabot"
   ],
   "scripts": {
-    "merge-dependabot-prs": "node ./src/lib/script.mjs",
-    "build": "mkdir -p bin && cp ./src/lib/script.mjs ./bin/merge-dependabot-prs"
+    "merge-dependabot-prs": "node ./src/lib/merge-dependabot-prs.mjs",
+    "close-dependabot-prs": "node ./src/lib/close-dependabot-prs.mjs",
+    "build": "mkdir -p bin && cp ./src/lib/merge-dependabot-prs.mjs ./bin/merge-dependabot-prs"
   },
   "bin": {
-    "merge-dependabot-prs": "./src/lib/script.mjs"
+    "merge-dependabot-prs": "./src/lib/merge-dependabot-prs.mjs",
+    "close-dependabot-prs": "./src/lib/close-dependabot-prs.mjs"
   },
-  "main": "script.mjs",
+  "main": "merge-dependabot-prs.mjs",
   "license": "MIT",
   "devDependencies": {
     "@octokit/rest": "19.0.0",

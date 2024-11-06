@@ -1,0 +1,53 @@
+name: Merge and Close Dependabot PRs
+
+on:
+  schedule:
+    - cron: '0 0 2 * *'
+  workflow_dispatch:
+  issue_comment:
+    types: [created]
+
+jobs:
+  merge-dependabot-prs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run merge-dependabot-prs
+        run: |
+          npx merge-dependabot-prs \
+            --githubToken=${{ secrets.GH_TOKEN }} \
+            --repoOwner=open-ish \
+            --repoName=utility
+
+  close-dependabot-prs:
+    if: github.event.issue.pull_request && contains(github.event.comment.body, '[dependabot-pr-manager] close prs')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run close-dependabot-prs
+        run: |
+          npx close-dependabot-prs \
+            --repoUrl=https://github.com/open-ish/utility.git \
+            --githubToken=${{ secrets.GH_TOKEN }} \
+            --repoOwner=open-ish \
+            --repoName=utility

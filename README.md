@@ -12,9 +12,10 @@ It's a monorepo with npm packages, all installable independently
 
 ## Packages
 
-- [trycatchfy](./packages/trycatchfy/): Standardize the way you try/catch HTTP request - [example](https://github.com/tassioFront/frontend-pattern/blob/main/src/hooks/useGetGHInfoByUserName/useGetGHInfoByUserName.ts#L47);
-- [storagefy](./packages/storagefy/): LocalStorage helper - [example](https://github.com/tassioFront/frontend-pattern/blob/main/src/helpers/useInfo.ts#L6);
-- [http-front-cache](./packages/http-front-cache): Provide a simple and efficient way to cache the results of service functions in the browser;
+- [trycatchfy](./packages/trycatchfy/README.md): Standardize the way you try/catch HTTP request - [example](https://github.com/tassioFront/frontend-pattern/blob/main/src/hooks/useGetGHInfoByUserName/useGetGHInfoByUserName.ts#L47);
+- [storagefy](./packages/storagefy/README.md): LocalStorage helper - [example](https://github.com/tassioFront/frontend-pattern/blob/main/src/helpers/useInfo.ts#L6);
+- [http-front-cache](./packages/http-front-cache/README.md): Provide a simple and efficient way to cache the results of service functions in the browser;
+- [dependabot-pr-manager](./packages/dependabot-pr-manager/README.md)
 
 ## Installing utility packages
 
