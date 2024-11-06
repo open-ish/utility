@@ -19,6 +19,9 @@ jobs:
         with:
           node-version: '14'
 
+      - name: Install Yarn
+        run: npm install -g yarn
+
       - name: Install dependencies
         run: yarn install
 
@@ -44,8 +47,11 @@ jobs:
         with:
           node-version: '14'
 
+      - name: Install Yarn
+        run: npm install -g yarn
+
       - name: Install dependencies
-        run: npm install
+        run: yarn install
 
       - name: Run close-dependabot-prs
         run: |
