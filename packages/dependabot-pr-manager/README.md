@@ -1,5 +1,7 @@
 # dependabot-pr-manager
 
+This package is in BETA. Please, report any issues you find.
+
 ## Installation
 
 Install it on devDependencies. Ex:
@@ -39,6 +41,7 @@ on:
 
 jobs:
   merge-dependabot-prs:
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -47,16 +50,24 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '18'
+
+      - name: Install Yarn
+        run: npm install -g yarn
 
       - name: Install dependencies
-        run: npm install
+        run: yarn install
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "dependabot[bot]" # change to it be the user that will merge the PRs 
+          git config --global user.email "49699333+dependabot[bot]@users.noreply.github.com" # change to it be the user that will merge the PRs
 
       - name: Run merge-dependabot-prs
         run: |
           npx merge-dependabot-prs \
             --repoUrl=https://github.com/open-ish/utility.git \
-            --combinedBranch=ci/combined-dependabot-update \
+            --combinedBranch=ci/combined-dependabot-updates \
             --mainBranch=main \
             --githubToken=${{ secrets.YOUR_GIT_HUB_TOKEN }} \
             --repoOwner=open-ish \
@@ -72,15 +83,17 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '18'
+
+      - name: Install Yarn
+        run: npm install -g yarn
 
       - name: Install dependencies
-        run: npm install
+        run: yarn install
 
       - name: Run close-dependabot-prs
         run: |
           npx close-dependabot-prs \
-            --repoUrl=https://github.com/open-ish/utility.git \
             --githubToken=${{ secrets.YOUR_GIT_HUB_TOKEN }} \
             --repoOwner=open-ish \
             --repoName=utility
@@ -98,3 +111,5 @@ jobs:
 - `--repoOwner`(required): The repository owner;
 - `--repoName`(required): The repository name;
 - `installDepsCommand`: The command to install the dependencies. Default: `yarn install`
+
+## Examples
