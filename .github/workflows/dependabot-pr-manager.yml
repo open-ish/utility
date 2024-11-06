@@ -25,6 +25,9 @@ jobs:
       - name: Run merge-dependabot-prs
         run: |
           npx merge-dependabot-prs \
+            --repoUrl=https://github.com/open-ish/utility.git \
+            --combinedBranch=ci/combined-dependabot-updates \
+            --mainBranch=master \
             --githubToken=${{ secrets.GH_TOKEN }} \
             --repoOwner=open-ish \
             --repoName=utility
@@ -47,7 +50,6 @@ jobs:
       - name: Run close-dependabot-prs
         run: |
           npx close-dependabot-prs \
-            --repoUrl=https://github.com/open-ish/utility.git \
             --githubToken=${{ secrets.GH_TOKEN }} \
             --repoOwner=open-ish \
             --repoName=utility
