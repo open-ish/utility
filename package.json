@@ -5,6 +5,7 @@
   "scripts": {
     "prepare": "husky install"
   },
+  "description": "A collection of utilities",
   "private": true,
   "dependencies": {
     "@commitlint/cli": "^17.4.3",
