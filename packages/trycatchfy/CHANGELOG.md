@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/open-ish/utility/compare/trycatchfy-v1.4.0...trycatchfy-v1.5.0) (2024-11-06)
+
+
+### Features
+
+* update all ([8046d73](https://github.com/open-ish/utility/commit/8046d739877afa001b8b827210fab86bbbcca0ff))
+
 # [1.4.0](https://github.com/open-ish/utility/compare/trycatchfy-v1.3.2...trycatchfy-v1.4.0) (2024-10-29)
 
 
