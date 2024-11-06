@@ -9,6 +9,7 @@
     },
     "release": {
       "executor": "nx:run-commands",
+      "dependsOn": ["release-semantic"],
       "outputs": [],
       "options": {
         "command": "npx semantic-release-plus --extends ./packages/dependabot-pr-manager/release.config.js",
