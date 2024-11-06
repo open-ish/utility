@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/open-ish/utility/compare/dependabot-pr-manager-v1.0.0...dependabot-pr-manager-v1.0.1) (2024-11-06)
+
+
+### Performance Improvements
+
+* force a new major version ([440ba03](https://github.com/open-ish/utility/commit/440ba03369c038f4842f79812807dec4ec2724d5))
+
 # 1.0.0 (2024-11-06)
 
 
