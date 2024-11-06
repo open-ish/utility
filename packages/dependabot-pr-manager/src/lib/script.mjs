@@ -167,6 +167,9 @@ async function main() {
 
   console.log(`${colors.blue}Creating pull request...${colors.reset}`);
   const { data: pr } = await octokit.pulls.create({
+    headers: {
+      authorization: `token ${GITHUB_TOKEN}`,
+    },
     owner: REPO_OWNER,
     repo: repoName,
     title: 'ci: combined Dependabot Updates',
