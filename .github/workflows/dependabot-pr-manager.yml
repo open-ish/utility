@@ -25,6 +25,11 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Set up Git
+        run: |
+          git config --global user.name "tassiofront"
+          git config --global user.email "tassio72@hotmail.com"
+
       - name: Run merge-dependabot-prs
         run: |
           npx merge-dependabot-prs \
