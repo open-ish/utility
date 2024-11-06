@@ -15,7 +15,7 @@ It's a monorepo with npm packages, all installable independently
 - [trycatchfy](./packages/trycatchfy/README.md): Standardize the way you try/catch HTTP request - [example](https://github.com/tassioFront/frontend-pattern/blob/main/src/hooks/useGetGHInfoByUserName/useGetGHInfoByUserName.ts#L47);
 - [storagefy](./packages/storagefy/README.md): LocalStorage helper - [example](https://github.com/tassioFront/frontend-pattern/blob/main/src/helpers/useInfo.ts#L6);
 - [http-front-cache](./packages/http-front-cache/README.md): Provide a simple and efficient way to cache the results of service functions in the browser;
-- [dependabot-pr-manager](./packages/dependabot-pr-manager/README.md)
+- [dependabot-pr-manager](./packages/dependabot-pr-manager/README.md): manage dependabot PRs. It groups DependaBot PRs on the repository and creates a PR with the updated dependencies. It is useful when you have multiple dependabot PRs and you want to merge them all at once.
 
 ## Installing utility packages
 
