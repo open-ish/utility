@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/open-ish/utility/compare/dependabot-pr-manager-v1.3.2...dependabot-pr-manager-v1.4.0) (2024-11-06)
+
+
+### Features
+
+* add info on pr body ([b7e559e](https://github.com/open-ish/utility/commit/b7e559ec9d7d76383280290046b9c5d952152312))
+
 ## [1.3.2](https://github.com/open-ish/utility/compare/dependabot-pr-manager-v1.3.1...dependabot-pr-manager-v1.3.2) (2024-11-06)
 
 
