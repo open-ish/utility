@@ -113,3 +113,15 @@ jobs:
 - `installDepsCommand`: The command to install the dependencies. Default: `yarn install`
 
 ## Examples
+
+[See this PR example](https://github.com/open-ish/utility/pull/63)
+
+![The PR](https://github.com/user-attachments/assets/65b88b81-6eee-41ce-bd18-30353f73ec7b)
+
+- Grouping Dependabot PRs
+
+![Grouping Dependabot PRs](https://github.com/user-attachments/assets/a6495e62-bdda-4929-b469-38d1c6c7c48e)
+
+- Closing Dependabot PRs after comment `[dependabot-pr-manager] close prs`
+
+![Closing Dependabot PRs](https://github.com/user-attachments/assets/f090c41d-2125-45d4-afc9-2aa7c22b9bee)
