@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/open-ish/utility/compare/dependabot-pr-manager-v1.4.0...dependabot-pr-manager-v1.5.0) (2024-11-06)
+
+
+### Features
+
+* avoid prompt on ci ([78c5c65](https://github.com/open-ish/utility/commit/78c5c65eea3ea59d5248bfbbbc3e920e1c3f8321))
+
 # [1.4.0](https://github.com/open-ish/utility/compare/dependabot-pr-manager-v1.3.2...dependabot-pr-manager-v1.4.0) (2024-11-06)
 
 

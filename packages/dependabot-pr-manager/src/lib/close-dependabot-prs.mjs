@@ -1,8 +1,6 @@
 #!/usr/bin/env node
-import readline from 'readline';
 
 import { Octokit } from '@octokit/rest';
-
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
@@ -29,8 +27,6 @@ const argv = yargs(hideBin(process.argv))
 const GITHUB_TOKEN = argv.githubToken;
 const REPO_OWNER = argv.repoOwner;
 const REPO_NAME = argv.repoName;
-
-// Constants (update it according to your needs)
 
 const colors = {
   reset: '\x1b[0m',
@@ -90,21 +86,6 @@ async function closeDependabotPRs(prs) {
   );
 }
 
-// Prompt user for confirmation
-function promptUser(question) {
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
-
-  return new Promise((resolve) => {
-    rl.question(question, (answer) => {
-      rl.close();
-      resolve(answer.toLowerCase() === 'yes' || answer.toLowerCase() === 'y');
-    });
-  });
-}
-
 async function main() {
   console.log(`${colors.blue}Starting the process...${colors.reset}`);
   const dependabotPRs = await getDependabotPRs();
@@ -113,21 +94,10 @@ async function main() {
     console.log(
       `${colors.green}No open Dependabot pull requests found.${colors.reset}`
     );
-
     return;
   }
 
-  const confirm = await promptUser(
-    `${colors.blue}Do you want to close all open Dependabot pull requests? (yes/no): ${colors.reset}`
-  );
-
-  if (confirm) {
-    await closeDependabotPRs(dependabotPRs);
-  } else {
-    console.log(
-      `${colors.blue}Operation cancelled by the user.${colors.reset}`
-    );
-  }
+  await closeDependabotPRs(dependabotPRs);
 }
 
 main().catch((error) => {
