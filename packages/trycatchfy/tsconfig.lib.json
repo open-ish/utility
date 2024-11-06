@@ -4,7 +4,6 @@
     "module": "commonjs",
     "outDir": "../../dist/out-tsc",
     "declaration": true,
-    "suppressImplicitAnyIndexErrors": true,
     "sourceMap": false,
     "types": ["node"]
   },
