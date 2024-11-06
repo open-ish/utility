@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/open-ish/utility/compare/dependabot-pr-manager-v1.3.1...dependabot-pr-manager-v1.3.2) (2024-11-06)
+
+
+### Bug Fixes
+
+* no verify commits and add install option ([53e7399](https://github.com/open-ish/utility/commit/53e7399a1b58770238d706e98f9456c6fd73938b))
+
 ## [1.3.1](https://github.com/open-ish/utility/compare/dependabot-pr-manager-v1.3.0...dependabot-pr-manager-v1.3.1) (2024-11-06)
 
 
