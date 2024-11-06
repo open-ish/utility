@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/open-ish/utility/compare/dependabot-pr-manager-v1.0.1...dependabot-pr-manager-v1.1.0) (2024-11-06)
+
+
+### Features
+
+* use es module instead ([b8510ba](https://github.com/open-ish/utility/commit/b8510ba46242a56236252db88f5b34b2b3dea017))
+
 ## [1.0.1](https://github.com/open-ish/utility/compare/dependabot-pr-manager-v1.0.0...dependabot-pr-manager-v1.0.1) (2024-11-06)
 
 
