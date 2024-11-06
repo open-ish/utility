@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/open-ish/utility/compare/dependabot-pr-manager-v1.5.0...dependabot-pr-manager-v1.5.1) (2024-11-06)
+
+
+### Bug Fixes
+
+* adjust readme path and docs ([723cc57](https://github.com/open-ish/utility/commit/723cc5739484324505841818a65f0f3867e4d8b1))
+
 # [1.5.0](https://github.com/open-ish/utility/compare/dependabot-pr-manager-v1.4.0...dependabot-pr-manager-v1.5.0) (2024-11-06)
 
 
