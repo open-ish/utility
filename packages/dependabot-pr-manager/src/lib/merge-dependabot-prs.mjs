@@ -192,7 +192,7 @@ async function main() {
     },
     owner: REPO_OWNER,
     repo: repoName,
-    title: 'ci: combined Dependabot Updates',
+    title: 'ci: update dependencies by dependabot-pr-manager',
     head: COMBINED_BRANCH,
     base: MAIN_BRANCH,
     body: prBody,
