@@ -18,7 +18,7 @@
   "devDependencies": {
     "@nrwl/cli": "15.7.1",
     "@nrwl/eslint-plugin-nx": "15.7.1",
-    "@nrwl/jest": "15.7.1",
+    "@nrwl/jest": "15.9.7",
     "@nrwl/js": "15.7.1",
     "@nrwl/linter": "15.7.1",
     "@nrwl/workspace": "15.7.1",
