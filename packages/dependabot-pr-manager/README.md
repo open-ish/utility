@@ -18,14 +18,14 @@ npm i dependabot-pr-manager --save-dev
 
 dependabot-pr-manager has two main scripts: `merge-dependabot-pr` and `close-dependabot-prs`.
 
-- the `merge-dependabot-prs` groups all Dependabot PRs into a single PR. So, it do not merge it automatically, giving you the opportunity to review/update the changes before merging.
+- the `merge-dependabot-prs` groups all Dependabot PRs into a single PR. So, it _do not_ merge it automatically, giving you the opportunity to review/update the changes before merging.
 - the `close-dependabot-prs` close all Dependabot prs
 
 See the [How to Use](#how-to-use) section for more information on how to use the `dependabot-pr-manager` library in your CI pipeline.
 
 ## How to Use
 
-You can use the `dependabot-pr-manager` library in your CI pipeline to automatically manage and merge Dependabot PRs. Below is an example of how to set up a GitHub Action to run the `dependabot-pr-manager` script on the second day of every month and allow manual triggering via a GitHub button. Additionally, it includes a job to close the Dependabot PRs when the created PR is commented with "[dependabot-pr-manager] close prs".
+You can use the `dependabot-pr-manager` library in your CI pipeline to automatically manage and merge Dependabot PRs. Below is an example of how to set up a GitHub Action to run the `dependabot-pr-manager` script on the first day of every month (at 09am UTC time) and allow manual triggering via a GitHub button. Additionally, it includes a job to close the Dependabot PRs when the created PR is commented with "[dependabot-pr-manager] close prs".
 
 file example: .github/workflows/dependabot-pr-manager.yml
 
@@ -34,7 +34,7 @@ name: Merge and Close Dependabot PRs
 
 on:
   schedule:
-    - cron: '0 9 * * 1' # Runs at 09am (UTC) on the 1nd day of every month (useful if your dependabot runs monthly in the first day at 08am). Change to fit your needs.
+    - cron: '0 9 * * 1' # Runs at 09am (UTC) on the first day of every month (useful if your dependabot runs monthly in the first day at 08am). Change to fit your needs.
   workflow_dispatch: # Allows manual triggering via GitHub button
   issue_comment:
     types: [created]
@@ -60,8 +60,8 @@ jobs:
 
       - name: Set up Git
         run: |
-          git config --global user.name "dependabot[bot]" # change to it be the user that will merge the PRs 
-          git config --global user.email "49699333+dependabot[bot]@users.noreply.github.com" # change to it be the user that will merge the PRs
+          git config --global user.name "dependabot[bot]" # change to it to be the user that will merge the PRs 
+          git config --global user.email "49699333+dependabot[bot]@users.noreply.github.com" # change to it to be the user that will merge the PRs
 
       - name: Run merge-dependabot-prs
         run: |
@@ -99,8 +99,8 @@ jobs:
             --repoName=utility
 ```
 
-- merge-dependabot-prs Job: This job runs the merge-dependabot-prs script to group and merge Dependabot PRs.
-- close-dependabot-prs Job: This job runs the close-dependabot-prs script to close the Dependabot PRs when the pull request created from dependabot-pr-manager be commented with `'[dependabot-pr-manager] close prs'`.
+- merge-dependabot-prs Job: This job runs the `merge-dependabot-prs` script to group Dependabot PRs into one.
+- close-dependabot-prs Job: This job runs the `close-dependabot-prs` script to close the Dependabot PRs when the pull request created from dependabot-pr-manager be commented with `'[dependabot-pr-manager] close prs'`.
 
 ## Package params
 
