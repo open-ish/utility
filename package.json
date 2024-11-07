@@ -8,8 +8,8 @@
   "description": "A collection of utilities",
   "private": true,
   "dependencies": {
-    "@commitlint/cli": "^17.4.3",
-    "@commitlint/config-conventional": "^17.4.3",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
     "@commitlint/config-nx-scopes": "^17.4.3",
     "@commitlint/cz-commitlint": "^17.4.2",
     "@swc/helpers": "~0.4.11",
@@ -20,7 +20,7 @@
     "tslib": "^2.8.1"
   },
   "devDependencies": {
-    "@nrwl/cli": "15.9.7",
+    "@nrwl/cli": "15.9.3",
     "@nrwl/devkit": "15.9.7",
     "@nrwl/eslint-plugin-nx": "15.9.7",
     "@nrwl/jest": "15.9.7",
@@ -36,7 +36,7 @@
     "@types/object-hash": "^3.0.6",
     "@types/pako": "^2.0.3",
     "@typescript-eslint/eslint-plugin": "5.62.0",
-    "@typescript-eslint/parser": "5.52.0",
+    "@typescript-eslint/parser": "5.62.0",
     "eslint": "8.15.0",
     "eslint-config-prettier": "9.1.0",
     "husky": "^9.1.6",
