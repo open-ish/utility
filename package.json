@@ -8,7 +8,7 @@
   "private": true,
   "dependencies": {
     "@commitlint/cli": "^17.4.3",
-    "@commitlint/config-conventional": "^17.4.3",
+    "@commitlint/config-conventional": "^19.5.0",
     "@commitlint/config-nx-scopes": "^17.4.3",
     "@commitlint/cz-commitlint": "^17.4.2",
     "commitizen": "^4.3.0",
