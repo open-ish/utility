@@ -8,7 +8,7 @@ updates:
   - package-ecosystem: npm
     directory: '/'
     schedule:
-      interval: weekly
+      interval: monthly
       time: '08:00'
     open-pull-requests-limit: 10
     rebase-strategy: 'disabled'
@@ -16,5 +16,5 @@ updates:
     registries:
       - npm-registry-npm-pkg-github-com
     ignore:
-      - dependency-name: "@nrwl/*"
-        update-types: ["version-update:semver-major"]
+      - dependency-name: '@nrwl/*'
+        update-types: ['version-update:semver-major']
