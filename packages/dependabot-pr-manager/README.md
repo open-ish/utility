@@ -7,7 +7,7 @@ This package is in BETA. Please, report any issues you find.
 Install it on devDependencies. Ex:
 
 ```bash
-npm i dependabot-pr-manager -D
+npm i dependabot-pr-manager --save-dev
 ```
 
 ## Motivation
@@ -34,7 +34,7 @@ name: Merge and Close Dependabot PRs
 
 on:
   schedule:
-    - cron: '0 0 2 * *' # Runs at 00:00 on the 2nd day of every month, so if your dependabot runs monthly in the first day, all PRs will be merged on the second day. Change to fit your needs.
+    - cron: '0 9 * * 1' # Runs at 09am (UTC) on the 1nd day of every month (useful if your dependabot runs monthly in the first day at 08am). Change to fit your needs.
   workflow_dispatch: # Allows manual triggering via GitHub button
   issue_comment:
     types: [created]
