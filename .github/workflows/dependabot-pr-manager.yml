@@ -2,7 +2,7 @@ name: Merge and Close Dependabot PRs
 
 on:
   schedule:
-    - cron: '0 0 2 * *'
+    - cron: '0 0 * * 2'
   workflow_dispatch:
   issue_comment:
     types: [created]
@@ -42,7 +42,7 @@ jobs:
             --repoName=utility
 
   close-dependabot-prs:
-    if: github.event.issue.pull_request && contains(github.event.comment.body, '[dependabot-pr-manager] close prs')
+    if: github.event.issue.pull_request && contains(github.event.comment.body, '[utility] close prs')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
