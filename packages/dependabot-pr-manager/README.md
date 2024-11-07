@@ -7,7 +7,7 @@ This package is in BETA. Please, report any issues you find.
 Install it on devDependencies. Ex:
 
 ```bash
-npm i dependabot-pr-manager --save-dev
+npm i utility-dependabot-pr-manager --save-dev
 ```
 
 ## Motivation
