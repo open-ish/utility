@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/open-ish/utility/compare/dependabot-pr-manager-v2.0.0...dependabot-pr-manager-v2.0.1) (2024-11-08)
+
+
+### Bug Fixes
+
+* use right patch ([758f130](https://github.com/open-ish/utility/commit/758f130cfe3b4882692cfe1e84267784a66b9140))
+
 # [2.0.0](https://github.com/open-ish/utility/compare/dependabot-pr-manager-v1.5.1...dependabot-pr-manager-v2.0.0) (2024-11-08)
 
 
