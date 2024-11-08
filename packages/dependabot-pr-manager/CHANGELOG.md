@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/open-ish/utility/compare/dependabot-pr-manager-v2.0.2...dependabot-pr-manager-v2.1.0) (2024-11-08)
+
+
+### Features
+
+* convert close script to ts too ([a69330f](https://github.com/open-ish/utility/commit/a69330fd813c22ab1660a9217e678e08d15f0678))
+
 ## [2.0.2](https://github.com/open-ish/utility/compare/dependabot-pr-manager-v2.0.1...dependabot-pr-manager-v2.0.2) (2024-11-08)
 
 
