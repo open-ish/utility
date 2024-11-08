@@ -14,12 +14,11 @@
   ],
   "scripts": {
     "merge-dependabot-prs": "node ./src/lib/merge-dependabot-prs/index.js",
-    "close-dependabot-prs": "node ./src/lib/close-dependabot-prs.js",
-    "build": "mkdir -p bin && cp ./src/lib/merge-dependabot-prs/index.js ./bin/merge-dependabot-prs"
+    "close-dependabot-prs": "node ./src/lib/close-dependabot-prs/index.js"
   },
   "bin": {
     "merge-dependabot-prs": "./src/lib/merge-dependabot-prs/index.js",
-    "close-dependabot-prs": "./src/lib/close-dependabot-prs.js"
+    "close-dependabot-prs": "./src/lib/close-dependabot-prs/index.js"
   },
   "main": "./src/lib/merge-dependabot-prs/index.js",
   "license": "MIT",

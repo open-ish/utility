@@ -8,6 +8,7 @@ import path from 'path';
 import { argv } from './args';
 import { consoleHelper } from '../consoleHelper';
 import { octokitFactory } from '../octokitHelper';
+import { getDependabotPRs } from '../getDependabotPrs';
 
 const REPO_URL = argv.repoUrl;
 const COMBINED_BRANCH = argv.combinedBranch;
@@ -21,24 +22,6 @@ const FILES_TO_COMMIT = argv.filesToCommit;
 const octokit = octokitFactory(GITHUB_TOKEN);
 
 type PullRequest = RestEndpointMethodTypes['pulls']['list']['response']['data'];
-
-export async function getDependabotPRs(): Promise<PullRequest> {
-  consoleHelper(`Fetching open Dependabot pull requests...`, 'blue');
-  const { data: pullRequests } = await octokit.pulls.list({
-    owner: REPO_OWNER,
-    repo: REPO_NAME,
-    state: 'open',
-  });
-
-  const dependabotPRs = pullRequests.filter(
-    (pr) => pr.user && pr.user.login === 'dependabot[bot]',
-  );
-  consoleHelper(
-    `Found ${dependabotPRs.length} Dependabot pull requests. 🤖`,
-    'green',
-  );
-  return dependabotPRs;
-}
 
 export async function extractDependencies(
   prs: PullRequest,
@@ -103,12 +86,21 @@ export function updatePackageJson(dependencies: Record<string, string>): void {
 export async function main(): Promise<void> {
   consoleHelper('Starting the process...', 'blue');
   const repoName = path.basename(REPO_URL, '.git');
-  const dependabotPRs: PullRequest = await getDependabotPRs();
+  const dependabotPRs: PullRequest = await getDependabotPRs({
+    octokit,
+    REPO_OWNER,
+    REPO_NAME: repoName,
+  });
 
   if (Object.keys(dependabotPRs).length === 0) {
     consoleHelper('No Dependabot PR to update. Exiting...', 'yellow');
     return;
   }
+
+  consoleHelper(
+    `Found ${dependabotPRs.length} Dependabot pull requests. 🤖`,
+    'green',
+  );
 
   const dependencies = await extractDependencies(dependabotPRs);
 
