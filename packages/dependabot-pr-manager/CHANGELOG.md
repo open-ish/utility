@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/open-ish/utility/compare/dependabot-pr-manager-v2.0.1...dependabot-pr-manager-v2.0.2) (2024-11-08)
+
+
+### Bug Fixes
+
+* use common js instead ([8c403af](https://github.com/open-ish/utility/commit/8c403af856a9e51d34f109d29bc58a37718fda83))
+
 ## [2.0.1](https://github.com/open-ish/utility/compare/dependabot-pr-manager-v2.0.0...dependabot-pr-manager-v2.0.1) (2024-11-08)
 
 
