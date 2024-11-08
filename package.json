@@ -50,6 +50,6 @@
     "ts-jest": "28.0.8",
     "ts-node": "10.9.2",
     "typescript": "4.9.5",
-    "utility-dependabot-pr-manager": "1.5.0"
+    "utility-dependabot-pr-manager": "2.1.0"
   }
 }

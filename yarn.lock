@@ -10563,10 +10563,10 @@ util-deprecate@^1.0.1, util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
 
-utility-dependabot-pr-manager@1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/utility-dependabot-pr-manager/-/utility-dependabot-pr-manager-1.5.0.tgz#60bb8503058618c2b1c09b4fe27f2f6724f4304b"
-  integrity sha512-NXWhbpFXhVr/rMu2C5ty4boYaRR+G6i21+aQnPjHsk9oTCrs5RfHwJhKrBjo0FFyF0Pa9Dar0ESCxqsa+SO9MQ==
+utility-dependabot-pr-manager@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/utility-dependabot-pr-manager/-/utility-dependabot-pr-manager-2.1.0.tgz#97b2b11885ab62b601e3deaf11b632a05aa50307"
+  integrity sha512-KedP9cpV4ldLi5fMvK//ITN744Rw0I0pErfLEJ2bSTM6Qq7UBL8twV5NqIquafS8Aozs+0QyKOSrMLPxoCZKSQ==
   dependencies:
     "@octokit/rest" "19.0.7"
     yargs "17.6.2"
