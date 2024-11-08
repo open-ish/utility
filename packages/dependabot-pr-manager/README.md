@@ -111,6 +111,7 @@ jobs:
 - `--repoOwner`(required): The repository owner;
 - `--repoName`(required): The repository name;
 - `installDepsCommand`: The command to install the dependencies. Default: `yarn install`
+- `filesToCommit`: Files to be committed on the pull request. Default: `package.json yarn.lock`
 
 ## Examples
 
