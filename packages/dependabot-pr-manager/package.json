@@ -13,15 +13,15 @@
     "dependabot"
   ],
   "scripts": {
-    "merge-dependabot-prs": "node ./src/lib/merge-dependabot-prs.js",
+    "merge-dependabot-prs": "node ./src/lib/merge-dependabot-prs/index.js",
     "close-dependabot-prs": "node ./src/lib/close-dependabot-prs.mjs",
-    "build": "mkdir -p bin && cp ./src/lib/merge-dependabot-prs.js ./bin/merge-dependabot-prs"
+    "build": "mkdir -p bin && cp ./src/lib/merge-dependabot-prs/index.js ./bin/merge-dependabot-prs"
   },
   "bin": {
-    "merge-dependabot-prs": "./src/lib/merge-dependabot-prs.js",
+    "merge-dependabot-prs": "./src/lib/merge-dependabot-prs/index.js",
     "close-dependabot-prs": "./src/lib/close-dependabot-prs.mjs"
   },
-  "main": "merge-dependabot-prs.js",
+  "main": "./src/lib/merge-dependabot-prs/index.js",
   "license": "MIT",
   "devDependencies": {
     "@octokit/rest": "19.0.0",
