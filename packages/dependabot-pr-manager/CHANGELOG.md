@@ -1,3 +1,16 @@
+# [2.0.0](https://github.com/open-ish/utility/compare/dependabot-pr-manager-v1.5.1...dependabot-pr-manager-v2.0.0) (2024-11-08)
+
+
+### Features
+
+* remove old files ([ff1d7fa](https://github.com/open-ish/utility/commit/ff1d7fa49864d961f9cee347bd51b17c380150ba))
+* use ts on lib instead BREAKING CHANGE: using ts instead and breaking code ([7592ee8](https://github.com/open-ish/utility/commit/7592ee8b3b41dd28ca49676ef8f90b1062be2121))
+
+
+### BREAKING CHANGES
+
+* using ts instead and breaking code
+
 ## [1.5.1](https://github.com/open-ish/utility/compare/dependabot-pr-manager-v1.5.0...dependabot-pr-manager-v1.5.1) (2024-11-06)
 
 
