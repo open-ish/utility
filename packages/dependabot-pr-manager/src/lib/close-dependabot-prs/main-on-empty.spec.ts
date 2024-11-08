@@ -36,14 +36,14 @@ jest.mock('../octokitHelper', () => {
 
 const mockExecSync = execSync as jest.MockedFunction<typeof execSync>;
 
-describe('merge-dependabot-prs', () => {
+describe('close-dependabot-prs', () => {
   it('should exit and console a exiting message due no dependabot PRs open', async () => {
     await main();
 
     expect((consoleHelper as jest.Mock).mock.calls).toEqual([
       ['Starting the process...', 'blue'],
       ['Fetching open Dependabot pull requests...', 'blue'],
-      ['No Dependabot PR to update. Exiting...', 'yellow'],
+      ['No open Dependabot pull requests found. Exiting...', 'green'],
     ]);
 
     expect(mockExecSync).not.toHaveBeenCalled();
