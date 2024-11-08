@@ -1,13 +1,16 @@
 {
   "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "module": "ES2020",
-    "target": "ES2020",
-    "outDir": "../../dist/out-tsc",
-    "declaration": true,
-    "sourceMap": false,
-    "lib": ["dom"]
-  },
+    "compilerOptions": {
+      "target": "ES2020",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true
+    },
   "include": ["src/**/*.ts"],
   "exclude": ["jest.config.ts", "src/**/*.spec.ts"]
 }
