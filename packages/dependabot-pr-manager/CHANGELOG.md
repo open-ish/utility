@@ -1,3 +1,10 @@
+## [5.0.1](https://github.com/open-ish/utility/compare/dependabot-pr-manager-v5.0.0...dependabot-pr-manager-v5.0.1) (2024-11-09)
+
+
+### Bug Fixes
+
+* copy md with new target ([e20bc6c](https://github.com/open-ish/utility/commit/e20bc6ca926e9896f825a3902ccfe5395193dff8))
+
 # [5.0.0](https://github.com/open-ish/utility/compare/dependabot-pr-manager-v4.0.0...dependabot-pr-manager-v5.0.0) (2024-11-09)
 
 
