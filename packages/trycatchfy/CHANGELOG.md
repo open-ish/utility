@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/open-ish/utility/compare/trycatchfy-v2.2.0...trycatchfy-v2.3.0) (2024-11-09)
+
+
+### Features
+
+* use org name on http front cache ([6b28027](https://github.com/open-ish/utility/commit/6b28027676ba6f84cb94b0ac05988db5d455fbaa))
+
 # [2.2.0](https://github.com/open-ish/utility/compare/trycatchfy-v2.1.0...trycatchfy-v2.2.0) (2024-11-09)
 
 
