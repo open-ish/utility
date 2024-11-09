@@ -13,6 +13,10 @@
     "front",
     "http-front-cache"
   ],
+  "publishConfig": {
+      "access": "public"
+    },
+  "description": "A utility to cache http requests in the front end",
   "author": "Open-ish",
   "main": "src/index.js",
   "types": "src/index.d.ts",

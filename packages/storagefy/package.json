@@ -7,6 +7,12 @@
     "url": "https://github.com/open-ish/utility.git",
     "directory": "packages/storagefy"
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "A utility to store data in the browser",
+  "author": "Open-ish",
+  "keywords": ["frontend", "storage", "localStorage", "sessionStorage"],
   "main": "src/index.js",
   "types": "src/index.d.ts",
   "license": "MIT"
