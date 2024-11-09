@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/open-ish/utility/compare/http-front-cache-v2.0.0...http-front-cache-v2.0.1) (2024-11-09)
+
+
+### Bug Fixes
+
+* copy md with new target ([e20bc6c](https://github.com/open-ish/utility/commit/e20bc6ca926e9896f825a3902ccfe5395193dff8))
+
 # [2.0.0](https://github.com/open-ish/utility/compare/http-front-cache-v1.4.0...http-front-cache-v2.0.0) (2024-11-09)
 
 
