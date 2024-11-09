@@ -1,3 +1,10 @@
+## [3.0.2](https://github.com/open-ish/utility/compare/storagefy-v3.0.1...storagefy-v3.0.2) (2024-11-09)
+
+
+### Bug Fixes
+
+* copy md with new target ([e20bc6c](https://github.com/open-ish/utility/commit/e20bc6ca926e9896f825a3902ccfe5395193dff8))
+
 ## [3.0.1](https://github.com/open-ish/utility/compare/storagefy-v3.0.0...storagefy-v3.0.1) (2024-11-09)
 
 
