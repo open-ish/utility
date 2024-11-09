@@ -1,3 +1,15 @@
+# [4.0.0](https://github.com/open-ish/utility/compare/dependabot-pr-manager-v3.0.0...dependabot-pr-manager-v4.0.0) (2024-11-09)
+
+
+### Features
+
+* use org name instead on trycathfy ([ef04cdf](https://github.com/open-ish/utility/commit/ef04cdf60620ff5881ae49b85450238bce51ff03))
+
+
+### BREAKING CHANGES
+
+* just using open-ish prefix instead
+
 # [3.0.0](https://github.com/open-ish/utility/compare/dependabot-pr-manager-v2.1.0...dependabot-pr-manager-v3.0.0) (2024-11-09)
 
 
