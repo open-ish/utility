@@ -1,5 +1,5 @@
 {
-  "name": "utility-storagefy",
+  "name": "@openish-u/storagefy",
   "version": "0.0.0-semantic-release",
   "type": "commonjs",
   "repository": {

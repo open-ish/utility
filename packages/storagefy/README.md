@@ -2,8 +2,10 @@
 
 LocalStorage helper
 
+Are you reading this on `npm`? Check out the [full and updated documentation on GitHub](https://github.com/open-ish/utility/blob/564d3761148a3947f583bd8566dd547560b62f71/packages/storagefy/README.md).
+
 ```bash
-npm i utility-storagefy
+npm i @openish-u/storagefy
 ```
 
 ## Motivation
