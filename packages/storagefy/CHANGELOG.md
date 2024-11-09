@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/open-ish/utility/compare/storagefy-v2.0.0...storagefy-v3.0.0) (2024-11-09)
+
+
+### Features
+
+* use org name instead fo all packages ([0930c53](https://github.com/open-ish/utility/commit/0930c53611a8e505835db83d24a85936b7480862))
+
+
+### BREAKING CHANGES
+
+* just using open-ish prefix instead
+
 # [2.0.0](https://github.com/open-ish/utility/compare/storagefy-v1.2.0...storagefy-v2.0.0) (2024-11-09)
 
 
