@@ -7,6 +7,7 @@
     "url": "https://github.com/open-ish/utility.git",
     "directory": "packages/trycatchfy"
   },
+  "author": "Open-ish",
   "keywords": ["frontend", "trycatch", "axios", "error handling"],
   "main": "src/index.js",
   "types": "src/index.d.ts",
