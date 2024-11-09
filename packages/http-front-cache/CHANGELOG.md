@@ -1,3 +1,20 @@
+# [2.0.0](https://github.com/open-ish/utility/compare/http-front-cache-v1.4.0...http-front-cache-v2.0.0) (2024-11-09)
+
+
+### Features
+
+* change name ([1a6148b](https://github.com/open-ish/utility/commit/1a6148bc7e294b3ff61b91afd6fd54176a7f5505))
+* change package name ([993cb39](https://github.com/open-ish/utility/commit/993cb39034b5ee2c0b039688ff00a7512edcc1af))
+* update all ([8046d73](https://github.com/open-ish/utility/commit/8046d739877afa001b8b827210fab86bbbcca0ff))
+* use npm for old packages ([6b7bf70](https://github.com/open-ish/utility/commit/6b7bf7032cb0f495b0d02cc4e8e262cee89248ae))
+* use org name instead fo all packages ([0930c53](https://github.com/open-ish/utility/commit/0930c53611a8e505835db83d24a85936b7480862))
+* use org name on http front cache ([6b28027](https://github.com/open-ish/utility/commit/6b28027676ba6f84cb94b0ac05988db5d455fbaa))
+
+
+### BREAKING CHANGES
+
+* just using open-ish prefix instead
+
 # [1.5.0](https://github.com/open-ish/utility/compare/http-front-cache-v1.4.0...http-front-cache-v1.5.0) (2024-11-09)
 
 
