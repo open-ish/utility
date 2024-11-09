@@ -8,6 +8,7 @@
       "directory": "packages/trycatchfy"
     },
     "author": "Open-ish",
+    "description": "A utility to wrap async functions with try-catch",
     "keywords": ["frontend", "trycatch", "axios", "error handling"],
     "main": "src/index.js",
     "types": "src/index.d.ts",
