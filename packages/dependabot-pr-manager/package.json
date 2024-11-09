@@ -1,5 +1,5 @@
 {
-  "name": "utility-dependabot-pr-manager",
+  "name": "@openish-u/dependabot-pr-manager",
   "version": "0.0.0-semantic-release",
   "description": "A script to manager Dependabot PRs",
   "type": "commonjs",

@@ -4,8 +4,10 @@
 
 Install it on devDependencies. Ex:
 
+Are you reading this on `npm`? Check out the [full and updated documentation on GitHub](https://github.com/open-ish/utility/blob/3f4180c042267a7ba98fefc3bbef068b41b324dd/packages/dependabot-pr-manager/README.md).
+
 ```bash
-npm i utility-dependabot-pr-manager --save-dev
+npm i @openish-u/dependabot-pr-manager --save-dev
 ```
 
 ## Motivation
