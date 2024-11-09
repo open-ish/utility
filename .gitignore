@@ -8,6 +8,7 @@
 # dependencies
 /node_modules
 **/node_modules
+.nx/*
 
 # IDEs and editors
 /.idea
@@ -43,3 +44,5 @@ release.config.js
 
 # Secrets
 .npmrc
+
+.nx/cache

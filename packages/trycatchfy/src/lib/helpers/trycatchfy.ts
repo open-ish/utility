@@ -17,7 +17,7 @@ const unExecutableFunction = () => null;
 onScriptError
 */
 export const trycatchfy = async <IAxiosErrorResponse>(
-  params: ITrycatchfyParams<IAxiosErrorResponse>
+  params: ITrycatchfyParams<IAxiosErrorResponse>,
 ): Promise<void | Error> => {
   params = {
     ...params,
@@ -38,11 +38,12 @@ export const trycatchfy = async <IAxiosErrorResponse>(
     const errorResponse = error.response;
     const isMappedError = httpMappedErrorsHelper.find(
       ({ statusCode, statusHandle }) =>
-        statusHandle?.(httpAxiosStatus) ?? httpAxiosStatus === statusCode
+        statusHandle?.(httpAxiosStatus) ?? httpAxiosStatus === statusCode,
     );
 
     isMappedError
-      ? params[isMappedError.handleName]?.(errorResponse)
+      ? // @ts-expect-error: handleName is a string
+        params[isMappedError.handleName]?.(errorResponse)
       : onHttpExceptionError(error);
   } finally {
     onEndCycle();

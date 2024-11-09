@@ -1,19 +1,24 @@
 {
-    "name": "@openish-u/trycatchfy",
-    "version": "0.0.0-semantic-release",
-    "type": "commonjs",
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/open-ish/utility.git",
-      "directory": "packages/trycatchfy"
-    },
-    "publishConfig": {
-      "access": "public"
-    },
-    "author": "Open-ish",
-    "description": "A utility to wrap async functions with try-catch",
-    "keywords": ["frontend", "trycatch", "axios", "error handling"],
-    "main": "src/index.js",
-    "types": "src/index.d.ts",
-    "license": "MIT"
+  "name": "@openish-u/trycatchfy",
+  "version": "0.0.0-semantic-release",
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/open-ish/utility.git",
+    "directory": "packages/trycatchfy"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Open-ish",
+  "description": "A utility to wrap async functions with try-catch",
+  "keywords": [
+    "frontend",
+    "trycatch",
+    "axios",
+    "error handling"
+  ],
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "license": "MIT"
 }
