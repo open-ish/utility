@@ -1,7 +1,5 @@
 # dependabot-pr-manager
 
-This package is in BETA. Please, report any issues you find.
-
 ## Installation
 
 Install it on devDependencies. Ex:
