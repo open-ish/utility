@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/open-ish/utility/compare/trycatchfy-v2.0.0...trycatchfy-v2.1.0) (2024-11-09)
+
+
+### Features
+
+* use org name instead on trycathfy BREAKING CHANGE: just using open-ish prefix instead ([5da389a](https://github.com/open-ish/utility/commit/5da389af64aa80327183ee5104ebbffce5ce4317))
+
 # [2.0.0](https://github.com/open-ish/utility/compare/trycatchfy-v1.5.0...trycatchfy-v2.0.0) (2024-11-09)
 
 
