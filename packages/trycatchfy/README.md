@@ -2,8 +2,10 @@
 
 Standardize the way you try/catch HTTP request
 
+Are you reading this on `npm`? Check out the [full and updated documentation on GitHub](https://github.com/open-ish/utility/blob/c4edf4815c97bb1f295875cd0d9f2902e28b0dad/packages/trycatchfy/README.md).
+
 ```bash
-npm i utility-trycatchfy
+npm i @open-ish/trycatchfy
 ```
 
 ## Motivation

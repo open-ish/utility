@@ -1,5 +1,5 @@
 {
-  "name": "utility-trycatchfy",
+  "name": "@open-ish/trycatchfy",
   "version": "0.0.0-semantic-release",
   "type": "commonjs",
   "repository": {
@@ -7,7 +7,9 @@
     "url": "https://github.com/open-ish/utility.git",
     "directory": "packages/trycatchfy"
   },
+  "keywords": ["frontend", "trycatch", "axios", "error handling"],
   "main": "src/index.js",
   "types": "src/index.d.ts",
-  "license": "MIT"
+  "license": "MIT",
+  "readme": "https://github.com/open-ish/utility/blob/master/packages/trycatchfy/README.md"
 }
