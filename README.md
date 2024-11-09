@@ -2,9 +2,7 @@
 
 This project was generated as a developer's utility belt, where they might find solutions to be used independently on the system solution (business-wise) and js framework.
 
-
-*Enjoy it? Don't forget to starring! ⭐*
-
+_Enjoy it? Don't forget to starring! ⭐_
 
 ## Project structure
 
@@ -23,12 +21,16 @@ It's a monorepo with npm packages, all installable independently
 
 ## Installing utility packages
 
-NPM packages are available on npmjs.com, so you can install them using npm or yarn and following the anatomy `utility-PACKAGE_NAME`. Ex:
+NPM packages are available on npmjs.com, so you can install them using npm or yarn and following the anatomy `@openish-u/PACKAGE_NAME`. Ex:
 
 ```bash
-npm i utility-http-front-cache
+npm i @openish-u/http-front-cache
 ```
 
 ```bash
-yarn add utility-storagefy
+yarn add @openish-u/storagefy
 ```
+
+## Migration from utility prefix to openish-u
+
+If you are using the old prefix `utility-PACKAGE-NAME` you can migrate to the new prefix `@openish-u/PACKAGE-NAME` safely. The packages are the same, only the prefix has changed.

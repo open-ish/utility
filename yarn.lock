@@ -2503,6 +2503,14 @@
   dependencies:
     "@octokit/openapi-types" "^16.0.0"
 
+"@openish-u/dependabot-pr-manager@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@openish-u/dependabot-pr-manager/-/dependabot-pr-manager-5.0.0.tgz#b8f0141a97a8811292f3cec205de0aa36c09e454"
+  integrity sha512-7nRv1N2//y85chG0vGLA9Wrf5mstjXzwigNc02+6CXZk+aQAIWY2iC02RUQoJo6BepqZNH7vSA0wrsqyMHVKdA==
+  dependencies:
+    "@octokit/rest" "19.0.7"
+    yargs "17.6.2"
+
 "@parcel/watcher@2.0.4":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@parcel/watcher/-/watcher-2.0.4.tgz#f300fef4cc38008ff4b8c29d92588eced3ce014b"
@@ -10562,14 +10570,6 @@ util-deprecate@^1.0.1, util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
-
-utility-dependabot-pr-manager@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/utility-dependabot-pr-manager/-/utility-dependabot-pr-manager-2.1.0.tgz#97b2b11885ab62b601e3deaf11b632a05aa50307"
-  integrity sha512-KedP9cpV4ldLi5fMvK//ITN744Rw0I0pErfLEJ2bSTM6Qq7UBL8twV5NqIquafS8Aozs+0QyKOSrMLPxoCZKSQ==
-  dependencies:
-    "@octokit/rest" "19.0.7"
-    yargs "17.6.2"
 
 uuid@^3.3.2:
   version "3.4.0"
