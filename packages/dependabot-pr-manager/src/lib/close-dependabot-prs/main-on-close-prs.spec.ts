@@ -24,7 +24,6 @@ jest.mock('../consoleHelper', () => ({
   consoleHelper: jest.fn(),
 }));
 
-const mockExecSync = execSync as jest.MockedFunction<typeof execSync>;
 const mockFs = fs as jest.Mocked<typeof fs>;
 const mockPath = path as jest.Mocked<typeof path>;
 

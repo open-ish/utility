@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
 import { execSync } from 'child_process';
-import { RestEndpointMethodTypes } from '@octokit/rest';
 import fs from 'fs';
 import path from 'path';
 
 import { argv } from './args';
 import { consoleHelper } from '../consoleHelper';
 import { octokitFactory } from '../octokitHelper';
-import { getDependabotPRs } from '../getDependabotPrs';
+import { getDependabotPRs } from '../get-dependabot-prs';
+import { PullRequest } from '../types';
 
 const REPO_URL = argv.repoUrl;
 const COMBINED_BRANCH = argv.combinedBranch;
@@ -20,8 +20,6 @@ const INSTALL_DEPS_COMMAND = argv.installDepsCommand;
 const FILES_TO_COMMIT = argv.filesToCommit;
 
 const octokit = octokitFactory(GITHUB_TOKEN);
-
-type PullRequest = RestEndpointMethodTypes['pulls']['list']['response']['data'];
 
 export async function extractDependencies(
   prs: PullRequest,

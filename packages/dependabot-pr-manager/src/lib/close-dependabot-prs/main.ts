@@ -3,7 +3,7 @@
 import { argv } from './args';
 import { consoleHelper } from '../consoleHelper';
 import { octokitFactory } from '../octokitHelper';
-import { getDependabotPRs } from '../getDependabotPrs';
+import { getDependabotPRs } from '../get-dependabot-prs';
 import { PullRequest } from '../types';
 
 const GITHUB_TOKEN = argv.githubToken;
