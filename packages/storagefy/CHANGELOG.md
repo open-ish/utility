@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/open-ish/utility/compare/storagefy-v3.0.0...storagefy-v3.0.1) (2024-11-09)
+
+
+### Bug Fixes
+
+* add storagefy homepage ([785fb0c](https://github.com/open-ish/utility/commit/785fb0c74b0cc3a403e3598b3b8539c468a66066))
+
 # [3.0.0](https://github.com/open-ish/utility/compare/storagefy-v2.0.0...storagefy-v3.0.0) (2024-11-09)
 
 
