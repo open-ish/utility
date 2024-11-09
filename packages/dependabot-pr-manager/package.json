@@ -12,6 +12,9 @@
     "pull request",
     "dependabot"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "merge-dependabot-prs": "node ./src/lib/merge-dependabot-prs/index.js",
     "close-dependabot-prs": "node ./src/lib/close-dependabot-prs/index.js"
