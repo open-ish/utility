@@ -1,3 +1,10 @@
+## [2.3.1](https://github.com/open-ish/utility/compare/trycatchfy-v2.3.0...trycatchfy-v2.3.1) (2024-11-09)
+
+
+### Bug Fixes
+
+* copy md with new target ([e20bc6c](https://github.com/open-ish/utility/commit/e20bc6ca926e9896f825a3902ccfe5395193dff8))
+
 # [2.3.0](https://github.com/open-ish/utility/compare/trycatchfy-v2.2.0...trycatchfy-v2.3.0) (2024-11-09)
 
 
