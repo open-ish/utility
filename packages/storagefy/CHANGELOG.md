@@ -1,3 +1,17 @@
+# [2.0.0](https://github.com/open-ish/utility/compare/storagefy-v1.2.0...storagefy-v2.0.0) (2024-11-09)
+
+
+### Features
+
+* update all ([8046d73](https://github.com/open-ish/utility/commit/8046d739877afa001b8b827210fab86bbbcca0ff))
+* use npm for old packages ([6b7bf70](https://github.com/open-ish/utility/commit/6b7bf7032cb0f495b0d02cc4e8e262cee89248ae))
+* use org name instead on trycathfy ([ef04cdf](https://github.com/open-ish/utility/commit/ef04cdf60620ff5881ae49b85450238bce51ff03))
+
+
+### BREAKING CHANGES
+
+* just using open-ish prefix instead
+
 # [1.3.0](https://github.com/open-ish/utility/compare/storagefy-v1.2.0...storagefy-v1.3.0) (2024-11-06)
 
 
