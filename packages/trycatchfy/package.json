@@ -15,6 +15,5 @@
     "keywords": ["frontend", "trycatch", "axios", "error handling"],
     "main": "src/index.js",
     "types": "src/index.d.ts",
-    "license": "MIT",
-    "readme": "https://github.com/open-ish/utility/blob/master/packages/trycatchfy/README.md"
+    "license": "MIT"
 }

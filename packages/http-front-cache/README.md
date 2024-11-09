@@ -1,7 +1,9 @@
 # http front cache
 
+Are you reading this on `npm`? Check out the [full and updated documentation on GitHub](https://github.com/open-ish/utility/blob/2e5bbbb0df996d262afb8b0e34672dcd762454c0/packages/http-front-cache/README.md).
+
 ```bash
-npm i utility-http-front-cache
+npm i @openish-u/http-front-cache
 ```
 
 ## Motivation
