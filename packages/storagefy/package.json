@@ -15,5 +15,6 @@
   "keywords": ["frontend", "storage", "localStorage", "sessionStorage"],
   "main": "src/index.js",
   "types": "src/index.d.ts",
+  "homepage": "https://github.com/open-ish/utility/blob/564d3761148a3947f583bd8566dd547560b62f71/packages/storagefy/README.md",
   "license": "MIT"
 }
