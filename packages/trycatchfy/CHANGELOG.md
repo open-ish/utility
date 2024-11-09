@@ -4,6 +4,20 @@
 ### Features
 
 * use org name instead ([870d24a](https://github.com/open-ish/utility/commit/870d24ad2b8869db626be10b6545d0702c36c0a4))
+* use org name instead on trycathfy ([4a5eb81](https://github.com/open-ish/utility/commit/4a5eb813d5df52b3a18b260b9e9c6cef4de1be1c))
+
+
+### BREAKING CHANGES
+
+* just using open-ish prefix instead
+* just using open-ish prefix instead
+
+# [2.0.0](https://github.com/open-ish/utility/compare/trycatchfy-v1.5.0...trycatchfy-v2.0.0) (2024-11-09)
+
+
+### Features
+
+* use org name instead ([870d24a](https://github.com/open-ish/utility/commit/870d24ad2b8869db626be10b6545d0702c36c0a4))
 
 
 ### BREAKING CHANGES
