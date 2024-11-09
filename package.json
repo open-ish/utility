@@ -6,7 +6,9 @@
     "prepare": "husky install",
     "build": "nx run-many --target=build --parallel",
     "lint": "nx run-many --target=lint --parallel",
-    "test": "nx run-many --target=test --parallel"
+    "test": "nx run-many --target=test --parallel",
+    "build:ci": "nx affected:build --base=origin/master~1 --head=HEAD",
+    "copyAssets:ci": "nx affected --target=copyAssets --base=origin/master~1 --head=HEAD"
   },
   "description": "A collection of utilities",
   "private": true,

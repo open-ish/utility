@@ -26,6 +26,13 @@
         "assets": ["packages/storagefy/*.md"]
       }
     },
+    "copyAssets": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "cp packages/storagefy/*.md dist/packages/storagefy/"
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],

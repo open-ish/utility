@@ -21,6 +21,13 @@
         "lintFilePatterns": ["packages/trycatchfy/**/*.ts"]
       }
     },
+    "copyAssets": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "cp packages/trycatchfy/*.md dist/packages/trycatchfy/"
+      }
+    },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/packages/trycatchfy"],
