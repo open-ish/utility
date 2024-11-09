@@ -51,5 +51,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          npx nx affected --target=release --base=origin/master~1 --head=origin/master
+          npx nx affected --target=release --base=origin/master~1 --head=origin/master --parallel=false
           npx semantic-release-plus
