@@ -29,7 +29,6 @@
     "@octokit/rest": "19.0.0",
     "yargs": "17.0.0"
   },
-  "readme": "./README.md",
   "author": {
     "name": "Open-ish"
   }

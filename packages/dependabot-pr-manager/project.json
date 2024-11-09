@@ -23,7 +23,14 @@
         "outputPath": "dist/packages/dependabot-pr-manager",
         "main": "packages/dependabot-pr-manager/src/index.ts",
         "tsConfig": "packages/dependabot-pr-manager/tsconfig.lib.json",
-        "assets": ["packages/dependabot-pr-manager/*.md"]
+        "assets": ["packages/dependabot-pr-manager/*.md"],
+      }
+    },
+    "copyAssets": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "cp packages/dependabot-pr-manager/*.md dist/packages/dependabot-pr-manager/"
       }
     },
     "lint": {

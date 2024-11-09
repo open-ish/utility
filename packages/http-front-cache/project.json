@@ -26,6 +26,13 @@
         "assets": ["packages/http-front-cache/*.md"]
       }
     },
+    "copyAssets": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "cp packages/http-front-cache/*.md dist/packages/http-front-cache/"
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
