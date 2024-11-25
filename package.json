@@ -37,7 +37,7 @@
     "@swc/cli": "~0.1.55",
     "@swc/core": "^1.2.173",
     "@types/jest": "28.1.8",
-    "@types/node": "18.19.9",
+    "@types/node": "22.9.1",
     "@types/object-hash": "^3.0.6",
     "@types/pako": "^2.0.3",
     "@typescript-eslint/eslint-plugin": "6.21.0",
